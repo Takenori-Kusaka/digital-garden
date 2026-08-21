@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<opml version="1.0">
+    <head>
+        <title>Takenori Kusaka - Universal High-Signal Antenna</title>
+    </head>
+    <body>
+        <!-- 1. Architecture & Distributed Systems -->
+        <outline text="Architecture &amp; Distributed Systems (アーキテクチャ &amp; 分散システム)" title="Architecture &amp; Distributed Systems (アーキテクチャ &amp; 分散システム)">
+            <outline type="rss" text="Architect Elevator - Gregor Hohpe" title="Architect Elevator - Gregor Hohpe" xmlUrl="https://architectelevator.com/feed.xml" htmlUrl="https://architectelevator.com/"/>
+            <outline type="rss" text="Martin Fowler" title="Martin Fowler" xmlUrl="https://martinfowler.com/feed.atom" htmlUrl="https://martinfowler.com/"/>
+            <outline type="rss" text="Martin Kleppmann" title="Martin Kleppmann" xmlUrl="http://feeds.feedburner.com/martinkl" htmlUrl="https://martin.kleppmann.com/"/>
+            <outline type="rss" text="The Pragmatic Engineer" title="The Pragmatic Engineer" xmlUrl="https://blog.pragmaticengineer.com/feed" htmlUrl="https://blog.pragmaticengineer.com/"/>
+            <outline type="rss" text="ByteByteGo (Alex Xu)" title="ByteByteGo (Alex Xu)" xmlUrl="https://blog.bytebytego.com/feed" htmlUrl="https://blog.bytebytego.com/"/>
+            <outline type="rss" text="Classmethod DevelopersIO" title="Classmethod DevelopersIO" xmlUrl="https://dev.classmethod.jp/feed/" htmlUrl="https://dev.classmethod.jp/"/>
+            <outline type="rss" text="Mercari Engineering Blog" title="Mercari Engineering Blog" xmlUrl="https://engineering.mercari.com/blog/feed.xml" htmlUrl="https://engineering.mercari.com/"/>
+            <outline type="rss" text="MIXI DEVELOPERS (Zenn)" title="MIXI DEVELOPERS (Zenn)" xmlUrl="https://zenn.dev/p/mixi/feed" htmlUrl="https://zenn.dev/p/mixi"/>
+        </outline>
+
+        <!-- 2. AI & Deep Learning -->
+        <outline text="AI &amp; Deep Learning (人工知能 &amp; 深層学習)" title="AI &amp; Deep Learning (人工知能 &amp; 深層学習)">
+            <outline type="rss" text="Preferred Networks (PFN) Tech Blog" title="Preferred Networks (PFN) Tech Blog" xmlUrl="https://tech.preferred.jp/ja/feed/" htmlUrl="https://tech.preferred.jp/ja/"/>
+            <outline type="rss" text="Berkeley AI Research (BAIR) Blog" title="Berkeley AI Research (BAIR) Blog" xmlUrl="https://bair.berkeley.edu/blog/feed.xml" htmlUrl="https://bair.berkeley.edu/blog/"/>
+            <outline type="rss" text="OpenAI Research" title="OpenAI Research" xmlUrl="https://openai.com/news/rss.xml" htmlUrl="https://openai.com/"/>
+        </outline>
+
+        <!-- 3. Quantum Computing & 6G Telecom -->
+        <outline text="Quantum &amp; 6G (量子コンピューティング &amp; 6G通信)" title="Quantum &amp; 6G (量子コンピューティング &amp; 6G通信)">
+            <outline type="rss" text="Shtetl-Optimized - Scott Aaronson" title="Shtetl-Optimized - Scott Aaronson" xmlUrl="https://scottaaronson.blog/?feed=rss2" htmlUrl="https://scottaaronson.blog/"/>
+            <outline type="rss" text="IEEE Spectrum Telecom" title="IEEE Spectrum Telecom" xmlUrl="https://spectrum.ieee.org/feeds/topic/telecommunications.rss" htmlUrl="https://spectrum.ieee.org/"/>
+            <outline type="rss" text="Quantum Computing Report" title="Quantum Computing Report" xmlUrl="https://quantumcomputingreport.com/feed/" htmlUrl="https://quantumcomputingreport.com/"/>
+        </outline>
+
+        <!-- 4. Biotechnology & Genomics -->
+        <outline text="Biotech &amp; Genomics (バイオ・ゲノム・創薬・医療)" title="Biotech &amp; Genomics (バイオ・ゲノム・創薬・医療)">
+            <outline type="rss" text="Amelieff バイオインフォマティクスブログ" title="Amelieff バイオインフォマティクスブログ" xmlUrl="https://staffblog.amelieff.jp/feed" htmlUrl="https://staffblog.amelieff.jp/"/>
+            <outline type="rss" text="In the Pipeline - Derek Lowe" title="In the Pipeline - Derek Lowe" xmlUrl="https://www.science.org/blogs/pipeline/feed" htmlUrl="https://www.science.org/blogs/pipeline/"/>
+            <outline type="rss" text="Broad Institute" title="Broad Institute" xmlUrl="https://www.broadinstitute.org/rss.xml" htmlUrl="https://www.broadinstitute.org/"/>
+        </outline>
+
+        <!-- 5. Aerospace & Physics -->
+        <outline text="Aerospace &amp; Physics (宇宙航空 &amp; 最先端物理)" title="Aerospace &amp; Physics (宇宙航空 &amp; 最先端物理)">
+            <outline type="rss" text="JAXA プレスリリース" title="JAXA プレスリリース" xmlUrl="https://www.jaxa.jp/rss/press_j.rdf" htmlUrl="https://www.jaxa.jp/"/>
+            <outline type="rss" text="Physics World" title="Physics World" xmlUrl="https://physicsworld.com/feed/" htmlUrl="https://physicsworld.com/"/>
+        </outline>
+
+        <!-- 6. Smart Agriculture & Forestry -->
+        <outline text="Smart Agriculture &amp; Forestry (スマート農業 &amp; 林業復興)" title="Smart Agriculture &amp; Forestry (スマート農業 &amp; 林業復興)">
+            <outline type="rss" text="農林水産省 (MAFF) 報道発表" title="農林水産省 (MAFF) 報道発表" xmlUrl="https://www.maff.go.jp/j/press/rss.xml" htmlUrl="https://www.maff.go.jp/"/>
+        </outline>
+
+        <!-- 7. Robotics, Materials & General Science -->
+        <outline text="Robotics &amp; Advanced Tech (ロボティクス・新素材・総合科学)" title="Robotics &amp; Advanced Tech (ロボティクス・新素材・総合科学)">
+            <outline type="rss" text="IEEE Spectrum Robotics" title="IEEE Spectrum Robotics" xmlUrl="https://spectrum.ieee.org/feeds/topic/robotics.rss" htmlUrl="https://spectrum.ieee.org/"/>
+            <outline type="rss" text="Nature Materials" title="Nature Materials" xmlUrl="https://www.nature.com/nmat.rss" htmlUrl="https://www.nature.com/nmat/"/>
+            <outline type="rss" text="Science Portal (科学技術振興機構 - JST)" title="Science Portal (科学技術振興機構 - JST)" xmlUrl="https://scienceportal.jst.go.jp/rsslatest.xml" htmlUrl="https://scienceportal.jst.go.jp/"/>
+        </outline>
+
+        <!-- 8. GovTech & Public Policy -->
+        <outline text="GovTech &amp; Policy (GovTech &amp; 新官僚主義・政策)" title="GovTech &amp; Policy (GovTech &amp; 新官僚主義・政策)">
+            <outline type="rss" text="デジタル庁 Techブログ (note)" title="デジタル庁 Techブログ (note)" xmlUrl="https://digital-gov.note.jp/m/m90208c3610d0/rss" htmlUrl="https://digital-gov.note.jp/m/m90208c3610d0"/>
+            <outline type="rss" text="内閣府 (Cabinet Office) 報道発表" title="内閣府 (Cabinet Office) 報道発表" xmlUrl="https://www.cao.go.jp/rss/news.rdf" htmlUrl="https://www.cao.go.jp/"/>
+            <outline type="rss" text="METI Journal ONLINE" title="METI Journal ONLINE" xmlUrl="https://journal.meti.go.jp/feed/" htmlUrl="https://journal.meti.go.jp/"/>
+        </outline>
+
+        <!-- 9. Deep Cryptography & Cybersecurity -->
+        <outline text="Security &amp; Cryptography (サイバーセキュリティ &amp; 暗号)" title="Security &amp; Cryptography (サイバーセキュリティ &amp; 暗号)">
+            <outline type="rss" text="Schneier on Security - Bruce Schneier" title="Schneier on Security - Bruce Schneier" xmlUrl="https://www.schneier.com/feed/atom/" htmlUrl="https://www.schneier.com/"/>
+            <outline type="rss" text="piyolog" title="piyolog" xmlUrl="http://d.hatena.ne.jp/Kango/rss" htmlUrl="https://piyolog.hatenadiary.jp/"/>
+        </outline>
+
+        <!-- 10. Calm Tech & UX -->
+        <outline text="Calm Tech &amp; UX (カームテック &amp; ユーザー体験)" title="Calm Tech &amp; UX (カームテック &amp; ユーザー体験)">
+            <outline type="rss" text="Amber Case on Substack" title="Amber Case on Substack" xmlUrl="https://caseorganic.substack.com/feed" htmlUrl="https://caseorganic.substack.com/"/>
+            <outline type="rss" text="UX MILK" title="UX MILK" xmlUrl="http://uxmilk.jp/feed" htmlUrl="https://uxmilk.jp"/>
+            <outline type="rss" text="ICS MEDIA" title="ICS MEDIA" xmlUrl="https://ics.media/feed/atom" htmlUrl="https://ics.media/"/>
+            <outline type="rss" text="コリス" title="コリス" xmlUrl="http://coliss.com/feed" htmlUrl="https://coliss.com/"/>
+        </outline>
+
+        <!-- 11. Universal Advanced Science -->
+        <outline text="Universal Advanced Science (総合最先端科学)" title="Universal Advanced Science (総合最先端科学)">
+            <outline type="rss" text="Quanta Magazine" title="Quanta Magazine" xmlUrl="https://www.quantamagazine.org/feed" htmlUrl="https://www.quantamagazine.org/"/>
+        </outline>
+    </body>
+</opml>
