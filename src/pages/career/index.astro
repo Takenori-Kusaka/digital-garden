@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
+
+const capabilities = [
+  {
+    t: '技術の横断設計',
+    d: 'メカ設計・エレキ・組込みソフトからクラウド、生成AIまでを一貫して扱い、層をまたぐ問題を一人で切り分けられる。'
+  },
+  {
+    t: 'クラウド基盤の標準化',
+    d: 'IaCの全社標準テンプレート、複数アカウント横断のガバナンス、オンプレからクラウドへの移行を設計・主導。'
+  },
+  {
+    t: '生成AIの業務実装',
+    d: 'PoCから社内展開までを担当。グループ全体の活用推進プロジェクトへの採用、社内DXコンサルティング10件以上の実績。'
+  },
+  {
+    t: '開発プロセスの設計',
+    d: '品質と規約を機械的に担保する仕組み、外部委託先との安全な共同開発環境、CI/CDの構築。'
+  },
+  {
+    t: '現場と経営の翻訳',
+    d: '現場の課題を、意思決定に使える形（選択肢・コストの桁・影響範囲）に翻訳して提示する。'
+  }
+];
+
+const values = [
+  { t: '根拠を開示する', d: '判断の前提と、採用しなかった選択肢を明示する。結論だけを渡さない。' },
+  { t: '相手の受容力から設計する', d: '最も進んだ手段ではなく、その現場が実際に使える手段を選ぶ。' },
+  { t: '判断と責任の所在を明確にする', d: '提案はするが、決定は立場のある人が行える形に整える。' },
+  { t: '持続可能な進め方を前提にする', d: '短期的な速度のために、運用と保守の負担を後ろへ送らない。' }
+];
+
+const horizon = [
+  {
+    t: '2029',
+    age: '38歳',
+    label: '3年後',
+    role: '現場と経営のあいだの翻訳役として、業務プロセス改善の設計を主導する。設計責任の一部を担う。',
+    expertise: '生成AIを組み込んだ業務データの整形と判断支援を、本番運用まで完遂する。',
+    impact: '業務の対処費用を下げ、意思決定に必要な情報を誰でも同じ形で参照できる状態をつくる。',
+    approach: '実務のなかで検証を回し、再現可能な型として文書に残す。'
+  },
+  {
+    t: '2031',
+    age: '40歳',
+    label: '5年後',
+    role: '技術と事業の橋渡しとして、複数職能にまたがる意思決定を前進させる。',
+    expertise: '現場に負担をかけない自動化の設計を、複数の領域で再現する。',
+    impact: '対象をグループ内から、公共・産業の領域へ広げる。',
+    approach: '提案・実装・計測を一貫して担い、成果を公開できる形で残す。'
+  },
+  {
+    t: '2036',
+    age: '45歳',
+    label: '10年後',
+    role: '事業と技術を橋渡しし、一事業または複数チームの中長期の技術・プロセス戦略に責任を持つ。',
+    expertise: '供給や仕組みが途絶しても、現場が機能を維持できる設計。',
+    impact: '組織や地域に、判断の前提が共有される状態を残す。',
+    approach: '人を育て、自分がいなくても回る形にする。'
+  },
+  {
+    t: '2046',
+    age: '55歳',
+    label: '20年後',
+    role: '判断と創造性を支える仕組みを、生み出し続ける設計者。',
+    expertise: '情報と生活基盤の自律性を支える設計。',
+    impact: '後進が自立して運営できる状態を残す。',
+    approach: '技術と働き方を、一つの体系として伝える。'
+  }
+];
+
+const focus = [
+  '生成AIを組み込んだ業務プロセスの設計と、現場への実装',
+  '判断の前提を揃えるための、トレードオフの可視化',
+  '属人性を排し、引き継げる形で知を資産化する仕組み',
+  '公共・産業領域における、業務データの扱いと統治'
+];
+
+const conditions = {
+  seek: [
+    '複数の技術領域が交わる問題を扱える',
+    '設計と意思決定に関与できる',
+    '成果を長く使われる形で残せる'
+  ],
+  avoid: [
+    '単一技術の反復で量を競う働き方',
+    '研究開発そのものが目的の領域',
+    '判断の根拠が共有されない進め方'
+  ]
+};
+---
+
+<BaseLayout
+  title="キャリアビジョン"
+  description="日下武紀のキャリアビジョン。現場と経営のあいだを翻訳し、業務の認知的な負担を下げる設計に取り組む。3年後・5年後・10年後・20年後の役割と専門性。"
+>
+  <article class="cv">
+    <header class="cv-hero">
+      <p class="cv-eyebrow">Career Vision ／ 最終更新 2026-09-15</p>
+      <h1 class="cv-title">
+        現場と経営のあいだを翻訳し、<br />
+        業務の認知的な負担を下げる設計をつくる。
+      </h1>
+      <p class="cv-lead">
+        製造業の現場からクラウド、生成AIまでを横断して15年。現在は、利用者に手順を意識させずに
+        業務データの整形と判断支援を完了させる設計を専門としています。
+        今後はこの設計を、グループ内の業務プロセスから公共・産業の領域へ広げていきます。
+      </p>
+      <nav class="cv-links">
+        <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+        <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
+        <a href={zennUrl} target="_blank" rel="noopener noreferrer">環境認識の背景（書籍）</a>
+      </nav>
+    </header>
+
+    <section class="cv-sec">
+      <h2>できること</h2>
+      <div class="cv-grid">
+        {capabilities.map((c) => (
+          <div class="cv-card">
+            <h3>{c.t}</h3>
+            <p>{c.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="cv-note">
+        経歴の詳細は <a href={`${baseUrl}/resume/`}>職務経歴書</a> を参照。
+      </p>
+    </section>
+
+    <section class="cv-sec">
+      <h2>提供できる価値</h2>
+      <dl class="cv-values">
+        <div>
+          <dt>現場の手間を増やさない自動化</dt>
+          <dd>入力の動線を変えずに、裏側でデータを構造化する。利用者に新しい操作を要求しない設計。</dd>
+        </div>
+        <div>
+          <dt>トレードオフの可視化による合意形成</dt>
+          <dd>選択肢と影響を、コストの桁と影響範囲で並べる。議論の座標系を用意し、判断を速くする。</dd>
+        </div>
+        <div>
+          <dt>知の資産化</dt>
+          <dd>個人に依存しない形で設計意図を残し、引き継ぎと再利用の費用を下げる。</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="cv-sec">
+      <h2>仕事に臨む原則</h2>
+      <dl class="cv-values">
+        {values.map((v) => (
+          <div>
+            <dt>{v.t}</dt>
+            <dd>{v.d}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="cv-sec">
+      <h2>これからの方向</h2>
+      <p class="cv-note">役割・専門性・貢献・進め方の4点で記述する。固定的な計画ではなく、環境の変化に応じて更新する。</p>
+
+      <div class="cv-timeline">
+        {horizon.map((h) => (
+          <div class="cv-item">
+            <div class="cv-item-head">
+              <span class="cv-year">{h.t}</span>
+              <span class="cv-meta">{h.age} ／ {h.label}</span>
+            </div>
+            <dl>
+              <div><dt>役割</dt><dd>{h.role}</dd></div>
+              <div><dt>専門性</dt><dd>{h.expertise}</dd></div>
+              <div><dt>貢献</dt><dd>{h.impact}</dd></div>
+              <div><dt>進め方</dt><dd>{h.approach}</dd></div>
+            </dl>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cv-sec">
+      <h2>関心領域</h2>
+      <ul class="cv-list">
+        {focus.map((f) => <li>{f}</li>)}
+      </ul>
+    </section>
+
+    <section class="cv-sec">
+      <h2>仕事を選ぶ条件</h2>
+      <div class="cv-conditions">
+        <div class="cv-cond cv-cond--seek">
+          <h3>重視する</h3>
+          <ul>{conditions.seek.map((s) => <li>{s}</li>)}</ul>
+        </div>
+        <div class="cv-cond cv-cond--avoid">
+          <h3>避ける</h3>
+          <ul>{conditions.avoid.map((s) => <li>{s}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-sec">
+      <h2>前提としている環境認識</h2>
+      <p class="cv-p">
+        人口構成の変化、供給基盤の老朽化、生成AIの急速な普及が同時に進む前提で設計を考えています。
+        一律の水準をどこでも維持する形から、下限を保証し、途絶させない形へ。
+        この認識の根拠は、公開した書籍にまとめています。
+      </p>
+      <p class="cv-note">
+        <a href={zennUrl} target="_blank" rel="noopener noreferrer">『未来予測の設計図 ―― 歴史的事実・現在の外部入力・20年後の社会構造』</a>
+      </p>
+    </section>
+
+    <footer class="cv-foot">
+      <p>
+        本ページは職務上の関心と方向性を示すものであり、所属組織の公式見解ではありません。
+        内容は年次で見直します。
+      </p>
+      <p class="cv-note">
+        <a href={baseUrl}>ホーム</a>
+        <span>・</span>
+        <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
+        <span>・</span>
+        <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+      </p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .cv {
+    --ink: #1f2937;
+    --slate: #6b7280;
+    --line: #e3ddd1;
+    --paper: #f8f5ef;
+    --blue: #24548c;
+    --green: #3a7d5c;
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .cv-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--line); margin-bottom: 3rem; }
+  .cv-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin-bottom: 1rem; }
+  .cv-title { font-size: 1.85rem; line-height: 1.5; font-weight: 700; color: var(--ink); margin-bottom: 1.25rem; letter-spacing: 0.01em; }
+  .cv-lead { font-size: 1rem; line-height: 2; color: #374151; max-width: 42rem; }
+  .cv-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1.5rem; font-size: 0.85rem; }
+  .cv-links a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(36, 84, 140, 0.3); padding-bottom: 1px; }
+  .cv-links a:hover { border-bottom-color: var(--blue); }
+
+  .cv-sec { margin-bottom: 3.2rem; }
+  .cv-sec h2 {
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; color: var(--ink);
+    border-bottom: 2px solid var(--ink); display: inline-block;
+    padding-bottom: 0.5rem; margin-bottom: 1.25rem;
+  }
+  .cv-p { font-size: 0.95rem; line-height: 1.9; color: #374151; max-width: 42rem; }
+  .cv-note { font-size: 0.82rem; line-height: 1.8; color: var(--slate); margin-top: 0.9rem; }
+  .cv-note a { color: var(--blue); text-decoration: none; }
+  .cv-note a:hover { text-decoration: underline; }
+
+  .cv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .cv-card { border: 1px solid var(--line); border-top: 2px solid var(--blue); background: #fff; padding: 1.1rem 1.2rem; }
+  .cv-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--ink); }
+  .cv-card p { font-size: 0.85rem; line-height: 1.8; color: #374151; margin: 0; }
+  .cv-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  .cv-values { margin: 0; }
+  .cv-values > div { display: grid; grid-template-columns: 16rem 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+  .cv-values > div:last-child { border-bottom: none; }
+  .cv-values dt { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
+  .cv-values dd { margin: 0; font-size: 0.88rem; line-height: 1.8; color: #374151; }
+
+  .cv-timeline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .cv-item { border-left: 3px solid var(--blue); padding-left: 1.2rem; }
+  .cv-item:nth-child(even) { border-left-color: var(--green); }
+  .cv-item-head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 0.7rem; }
+  .cv-year { font-size: 1.4rem; font-weight: 700; color: var(--ink); }
+  .cv-meta { font-size: 0.76rem; color: var(--slate); }
+  .cv-item dl { margin: 0; }
+  .cv-item dl > div { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0.5rem; padding: 0.45rem 0; border-bottom: 1px dashed var(--line); }
+  .cv-item dl > div:last-child { border-bottom: none; }
+  .cv-item dt { font-size: 0.72rem; color: var(--slate); padding-top: 0.15rem; }
+  .cv-item dd { margin: 0; font-size: 0.86rem; line-height: 1.75; color: #374151; }
+
+  .cv-list { margin: 0; padding-left: 1.2rem; }
+  .cv-list li { font-size: 0.9rem; line-height: 1.9; color: #374151; margin-bottom: 0.3rem; }
+
+  .cv-conditions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .cv-cond { padding: 1.3rem 1.4rem; border: 1px solid var(--line); }
+  .cv-cond--seek { border-top: 3px solid var(--green); }
+  .cv-cond--avoid { border-top: 3px solid var(--slate); }
+  .cv-cond h3 { font-size: 0.9rem; font-weight: 700; margin: 0 0 0.7rem; color: var(--ink); }
+  .cv-cond ul { margin: 0; padding-left: 1.1rem; }
+  .cv-cond li { font-size: 0.85rem; line-height: 1.8; color: #374151; margin-bottom: 0.3rem; }
+
+  .cv-foot { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); font-size: 0.82rem; line-height: 1.9; color: var(--slate); }
+
+  @media (max-width: 720px) {
+    .cv-grid, .cv-timeline, .cv-conditions { grid-template-columns: 1fr; }
+    .cv-values > div { grid-template-columns: 1fr; gap: 0.25rem; }
+    .cv-item dl > div { grid-template-columns: 1fr; gap: 0.15rem; }
+    .cv-title { font-size: 1.45rem; }
+  }
+</style>

@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
+
+const scenarios = [
+  {
+    id: 'A', name: '延長・深化', sub: '現場実装のアーキテクト',
+    scores: ['高', '高', '中', '中', '中', '中'],
+    role: '現在の専門性を、組織横断の設計責任へ広げる',
+    body: '製造業の現場接点を持つ環境で、生成AIを組み込んだ業務プロセスと共通アセットを設計する。'
+  },
+  {
+    id: 'B', name: '意欲・転換', sub: '公共・コモンズの設計者',
+    scores: ['非常に高い', '中', '高', '高', '高', '高'],
+    role: '行政・公共・産業の意思決定基盤へ領域を広げる',
+    body: 'データコモンズ、行政プロセス、社会インフラの継続性を支える技術と運用を実装する。'
+  },
+  {
+    id: 'C', name: '制約解除', sub: '独立した技術パートナー',
+    scores: ['高', '中', '中', '高', '非常に高い', '高'],
+    role: '所属に依存しないアセットと支援モデルをつくる',
+    body: '再利用可能なソフトウェア、設計原則、伴走支援を組み合わせ、複数の組織・現場へ価値を届ける。'
+  }
+];
+
+const horizons = [
+  {
+    t: '2029', age: '38歳', label: '3年後', rows: [
+      ['Being', '技術の実装力と業務理解を兼ね備え、現場の課題を構造化して意思決定へつなげる実務者。'],
+      ['Role', '現場と経営のあいだを翻訳するアーキテクト。業務プロセスと共通アセットの設計責任を担う。'],
+      ['Impact', '利用者の作業動線を変えずに、情報整理・エスカレーション・判断支援の費用を下げる。'],
+      ['Domain', '製造業、設備、業務プロセス、生成AI、クラウド基盤。'],
+      ['Capability', '複数の技術層を横断した設計、トレードオフの可視化、関係者間の合意形成。'],
+      ['Evidence', '本番運用された業務アセット、設計記録、導入効果、再利用可能なドキュメント。'],
+      ['Environment', '現場との接点を持ち、設計意図と運用結果を往復できるチーム。'],
+      ['Life', '長期的に成果を出せる働き方と、継続的な学習・発信の時間を確保する。']
+    ]
+  },
+  {
+    t: '2031', age: '40歳', label: '5年後', rows: [
+      ['Being', '特定の製品や技術ではなく、現場・事業・技術を接続する能力で選ばれる専門家。'],
+      ['Role', '複数職能にまたがる意思決定を、選択肢・コスト・影響範囲の可視化によって前進させる。'],
+      ['Impact', '現場への導入負担を抑えたデータ化と判断支援を、複数の業務領域で再現する。'],
+      ['Domain', '環境知能、プロセス設計、データコモンズ、公共・産業のガバナンス。'],
+      ['Capability', '顧客課題の発見、事業価値の定義、技術投資の説明、実装から計測までの一貫運用。'],
+      ['Evidence', '複数のケーススタディ、公開設計原則、他者に引き継がれたアセット、紹介・相談。'],
+      ['Environment', '組織内外の専門家と協働し、所属を越えて知見と成果を循環させる環境。'],
+      ['Life', '専門性の深化と、持続的に価値を提供できる働き方を両立する。']
+    ]
+  },
+  {
+    t: '2036', age: '45歳', label: '10年後', rows: [
+      ['Being', '事業と技術を橋渡しし、変化の大きい環境でも継続性のある仕組みを設計できる社会アーキテクト。'],
+      ['Role', '一事業または複数チームの中長期の技術・プロセス戦略に責任を持つ。'],
+      ['Impact', '組織や地域が、外部サービスに依存しきらずに判断と業務を継続できる設計を残す。'],
+      ['Domain', '情報主権、Local-First、エッジAI、通信・データ基盤、地域・産業システム。'],
+      ['Capability', '設備・構成・制度の3つの水準を同時に設計し、人材育成まで含めて定着させる。'],
+      ['Evidence', '組織・地域に定着した運用プロトコル、育成された人材、継続利用される設計資産。'],
+      ['Environment', '組織・地域・専門コミュニティを横断する、実装と知識循環のネットワーク。'],
+      ['Life', 'テーマと働き方を主体的に選び、長期的な社会実装に関わる。']
+    ]
+  },
+  {
+    t: '2046', age: '55歳', label: '20年後', rows: [
+      ['Being', '人と組織の判断・創造性を拡張する仕組みを生み、次の世代へ渡す設計者。'],
+      ['Role', 'コモンズの設計思想家・技術指導者。'],
+      ['Impact', '供給の継続性と決定の根拠を、現場で運用可能な設計へ落とし込む。'],
+      ['Domain', '情報・通信・水・電力など、生活を支える基盤の局所協調。'],
+      ['Capability', '技術、制度、組織文化を一つの設計体系として説明し、後進へ移転する。'],
+      ['Evidence', '属人性を排した設計書、OSS、運用プロトコル、継続して使われる教育資産。'],
+      ['Environment', '地域に根ざしながら、専門知を広く共有する活動形態。'],
+      ['Life', '学び・創造・文化形成を続けながら、次の担い手が自律できる状態をつくる。']
+    ]
+  }
+];
+
+const canvas = [
+  ['Customers / 顧客', '現場の利用者、業務責任者、事業責任者、公共・産業の意思決定者'],
+  ['Value Provided / 提供価値', '利用者の導入負担を抑えた業務データ化、判断支援、トレードオフの可視化'],
+  ['Channels / 経路', '本番実績、ケーススタディ、設計ドキュメント、公開記事、紹介、プロトタイプ'],
+  ['Relationships / 関係', '組織横断の協働、プロジェクト、技術顧問、専門家コミュニティ'],
+  ['Revenue & Benefits / 対価', '給与・報酬、裁量、専門性、信用、継続的な社会的インパクト'],
+  ['Key Resources / 主要資産', 'IoT・組込み・クラウド・生成AIの統合経験、設計原則、公開実績、共通アセット'],
+  ['Key Activities / 主要活動', '課題発見、アーキテクチャ設計、実装、評価、合意形成、ドキュメンテーション、人材育成'],
+  ['Key Partners / 主要パートナー', '現場の熟達者、プロダクト・デザイン・営業、公共側の実践者、技術専門家'],
+  ['Costs / コスト', '導入・運用・保守の負担、意思決定の遅延、技術負債、知識移転の費用']
+];
+
+const gaps = [
+  ['G1', '組織横断の意思決定', '技術・事業・現場の選択肢を揃え、責任ある決定を支援する', 'トレードオフの可視化と提案の反復', '高'],
+  ['G2', '顧客課題の直接検証', '利用者の行動と業務結果から価値を検証する', '二次情報から一次の現場接点へ広げる', '高'],
+  ['G3', '専門家ネットワーク', '自分が直接扱っていない領域の妥当性を協働で確認する', '公開知と目的ベースの対話を接続する', '中'],
+  ['G4', '事業価値の説明', '技術投資を費用・継続性・成果の桁で説明する', '技術成果を事業成果へ翻訳する経験を増やす', '中']
+];
+
+const experiments = [
+  ['課題', '会議・業務ログから判断事項を構造化し、意思決定の遅延と見落としを減らす'],
+  ['仮説', '情報整理を仕組み化することで、担当者の認知的な負荷を下げ、重要な判断に集中できる'],
+  ['実施', '小さな業務範囲で抽出・確認・共有の流れを試し、利用者の反応と運用上の障壁を記録する'],
+  ['成果物', '運用フロー、設計記録、評価指標、改善案、再利用可能なテンプレート'],
+  ['成功条件', '実務で継続利用され、意思決定の前提が共有される。効果と限界を説明できる'],
+  ['判定', '継続・拡大・別領域への展開・中止を、利用結果と関係者の判断で決める']
+];
+---
+
+<BaseLayout
+  title="キャリア開発計画"
+  description="日下武紀の公開キャリア開発計画。BMY×IDPを統合したCMDSで、専門性・価値提供・将来の役割・開発課題を整理する。"
+>
+  <article class="system">
+    <header class="system-hero">
+      <p class="system-back"><a href={`${baseUrl}/career/`}>← キャリアビジョンへ戻る</a></p>
+      <p class="system-eyebrow">Career Development Plan ／ CMDS v0.3</p>
+      <h1>キャリア開発計画</h1>
+      <p class="system-lead">
+        Business Model You の価値提供モデルと、Individual Development Plan の開発・レビューを統合した公開版です。
+        採用・協働・社内配置の検討に使えるよう、専門性、提供価値、将来の役割、開発テーマを整理しています。
+      </p>
+      <p class="system-note">
+        本計画は固定的な職位計画ではありません。技術、市場、社会環境の変化を踏まえ、年次で更新します。
+        世界認識の背景は <a href={zennUrl} target="_blank" rel="noopener noreferrer">公開書籍</a> にまとめています。
+      </p>
+    </header>
+
+    <nav class="system-toc" aria-label="構成">
+      <a href="#purpose">Purpose</a><a href="#scenarios">Scenarios</a><a href="#horizons">Time Horizons</a>
+      <a href="#canvas">Career Model</a><a href="#profile">Target Profile</a><a href="#gaps">Development Gaps</a>
+      <a href="#experiments">Experiments</a><a href="#review">Review</a>
+    </nav>
+
+    <section id="purpose" class="system-section">
+      <h2><span>M1</span> Purpose &amp; Constraints</h2>
+      <p class="system-p">
+        現場の利用者が新しい操作を覚えなくても業務を続けられるよう、IoT、クラウド、生成AIを組み合わせて業務プロセスを設計する。
+        現場・事業・技術のトレードオフを可視化し、判断の前提と責任の所在が共有される状態をつくる。
+      </p>
+      <div class="purpose-grid">
+        <div><h3>提供する専門性</h3><p>物理デバイスからクラウド、生成AIまでを接続する統合設計。実装・運用・引き継ぎまでを含む。</p></div>
+        <div><h3>重視する価値</h3><p>根拠の開示、利用者の受容力からの設計、持続可能な運用、知識の資産化。</p></div>
+        <div><h3>活躍しやすい環境</h3><p>現場と意思決定者の距離が近く、設計意図と運用結果を往復できる組織。</p></div>
+        <div><h3>避ける環境</h3><p>単一技術の反復だけで量を競う環境、判断の前提が共有されない環境、研究開発だけが目的の役割。</p></div>
+      </div>
+    </section>
+
+    <section id="scenarios" class="system-section">
+      <h2><span>M2</span> Future Scenarios</h2>
+      <p class="system-p">
+        役割の選択肢を単線化せず、現在の専門性を深める道、公共・産業へ広げる道、所属を越えて提供する道を並列に持つ。
+        3年程度はAを基線とし、BとCに有効な資産を同時に蓄積する。
+      </p>
+      <div class="scenario-grid">
+        {scenarios.map((s) => (
+          <article class="scenario-card">
+            <p class="scenario-id">{s.id}</p>
+            <h3>{s.name}</h3>
+            <p class="scenario-sub">{s.sub}</p>
+            <p class="scenario-role">{s.role}</p>
+            <p>{s.body}</p>
+          </article>
+        ))}
+      </div>
+      <div class="table-wrap">
+        <table class="public-table score-table">
+          <thead><tr><th>評価軸</th><th>A</th><th>B</th><th>C</th><th>読み方</th></tr></thead>
+          <tbody>
+            <tr><th>本人の関心</th><td>高</td><td class="strong">非常に高い</td><td>高</td><td>長期的なテーマとの一致</td></tr>
+            <tr><th>現在からの接続</th><td class="strong">高</td><td>中</td><td>中</td><td>既存経験からの移行可能性</td></tr>
+            <tr><th>社会的需要</th><td>中</td><td class="strong">高</td><td>中</td><td>継続的に解く価値がある課題か</td></tr>
+            <tr><th>選択肢の拡大</th><td>中</td><td>高</td><td class="strong">非常に高い</td><td>他の役割にも効く資産か</td></tr>
+            <tr><th>現時点の位置づけ</th><td class="strong">基線</td><td>展開先</td><td>長期オプション</td><td>固定的な決定ではない</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="horizons" class="system-section">
+      <h2>時間軸（8項目）</h2>
+      <p class="system-muted">役職名ではなく、担う問題・責任・専門性・証拠・環境で将来を記述する。</p>
+      {horizons.map((h) => (
+        <div class="horizon">
+          <div class="horizon-head"><span class="horizon-year">{h.t}</span><span>{h.age} ／ {h.label}</span></div>
+          <dl>
+            {h.rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          </dl>
+        </div>
+      ))}
+    </section>
+
+    <section id="canvas" class="system-section">
+      <h2><span>M3</span> Personal Career Model Canvas</h2>
+      <p class="system-p">誰に、どのような価値を、どの経路で届け、どの資産と関係を得るかを9ブロックで整理する。</p>
+      <div class="canvas-grid">
+        {canvas.map(([title, body]) => <div class="canvas-block"><h3>{title}</h3><p>{body}</p></div>)}
+      </div>
+    </section>
+
+    <section id="profile" class="system-section">
+      <h2><span>M4</span> Target Profile &amp; Evidence</h2>
+      <p class="system-muted">5年後を主な開発対象とし、学習ではなく実務の証拠で到達を確認する。</p>
+      <div class="table-wrap">
+        <table class="public-table profile-table">
+          <thead><tr><th>領域</th><th>目標状態</th><th>証拠</th></tr></thead>
+          <tbody>
+            <tr><th>専門性</th><td>現場の導入負担を抑えたデータ整形と判断支援を本番に載せる</td><td>導入実績、ADR、稼働ログ</td></tr>
+            <tr><th>プロダクト</th><td>機能ではなく業務上の成果と負担軽減で価値を定義する</td><td>採択実績、利用者の声、改善結果</td></tr>
+            <tr><th>リーダーシップ</th><td>選択肢と影響範囲を示し、複数職能の意思決定を前進させる</td><td>提案資料、意思決定記録、チーム成果</td></tr>
+            <tr><th>事業・経済性</th><td>技術投資を費用・継続性・成果の桁で説明する</td><td>効果試算、承認記録、継続利用</td></tr>
+            <tr><th>信用・発信</th><td>現場×AIの設計について相談される</td><td>公開物、問い合わせ、紹介、対話</td></tr>
+            <tr><th>知識移転</th><td>設計意図と運用方法を、他者が再利用できる形で残す</td><td>設計書、テンプレート、育成実績</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="gaps" class="system-section">
+      <h2><span>M5</span> Development Gaps</h2>
+      <p class="system-muted">不足をすべて埋めるのではなく、複数の将来に効く高レバレッジの課題から着手する。</p>
+      <div class="table-wrap">
+        <table class="public-table gap-table">
+          <thead><tr><th>ID</th><th>開発テーマ</th><th>目標</th><th>現在の焦点</th><th>優先度</th></tr></thead>
+          <tbody>
+            {gaps.map((g) => <tr><th>{g[0]}</th><td>{g[1]}</td><td>{g[2]}</td><td>{g[3]}</td><td>{g[4]}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <div class="adaptation">
+        <h3>市場変化への適応</h3>
+        <p>
+          生成AIの利用が一般化した場合は、画面上の機能開発だけを競争軸にしない。
+          現場の物理環境、エッジでの処理、業務制度の設計を組み合わせる領域へ、専門性の重心を移す。
+        </p>
+      </div>
+    </section>
+
+    <section id="experiments" class="system-section">
+      <h2><span>M6</span> Development Experiments</h2>
+      <p class="system-p">大きなキャリア変更の前に、小さな業務実験で役割適合性と成果を検証する。</p>
+      <dl class="experiment">
+        {experiments.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+      </dl>
+    </section>
+
+    <section id="review" class="system-section">
+      <h2><span>M7</span> Review &amp; Reconfiguration</h2>
+      <div class="review-grid">
+        <div><h3>四半期</h3><p>実験の結果、利用者の反応、成果物、次に取るべき選択を確認する。</p></div>
+        <div><h3>半期</h3><p>開発テーマの優先順位と、12か月の実行計画を見直す。</p></div>
+        <div><h3>年次</h3><p>Purpose、シナリオ、価値提供モデル、目標プロフィールを更新する。</p></div>
+      </div>
+      <p class="system-p">判断材料は、成果物、利用結果、市場・組織の反応、外部環境の変化。計画は固定せず、証拠に応じて再構成する。</p>
+    </section>
+
+    <footer class="system-foot">
+      <p>本ページは公開用に編集した要約版です。記載内容は年次で見直します。</p>
+      <p><a href={`${baseUrl}/career/`}>キャリアビジョン（読み物）</a><span> ・ </span><a href={`${baseUrl}/resume/`}>職務経歴書</a><span> ・ </span><a href={baseUrl}>ホーム</a></p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .system { --ink:#1f2937; --slate:#6b7280; --line:#e3ddd1; --paper:#f8f5ef; --blue:#24548c; --green:#3a7d5c; max-width:60rem; margin:0 auto; color:var(--ink); }
+  .system-hero { padding:2.5rem 0 1.75rem; border-bottom:1px solid var(--line); margin-bottom:1.5rem; }
+  .system-back { font-size:.82rem; margin-bottom:1.3rem; }
+  .system-back a,.system-note a,.system-foot a { color:var(--blue); text-decoration:none; }
+  .system-back a:hover,.system-note a:hover,.system-foot a:hover { text-decoration:underline; }
+  .system-eyebrow { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); margin-bottom:.6rem; }
+  .system h1 { font-size:1.9rem; margin:0 0 1rem; }
+  .system-lead,.system-p { font-size:.95rem; line-height:1.9; color:#374151; max-width:45rem; }
+  .system-note,.system-muted { font-size:.82rem; line-height:1.8; color:var(--slate); }
+  .system-toc { display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; border-bottom:1px dashed var(--line); padding:.8rem 0 1.5rem; margin-bottom:2.5rem; font-size:.78rem; }
+  .system-toc a { color:var(--blue); text-decoration:none; }
+  .system-section { scroll-margin-top:4rem; margin-bottom:3.2rem; }
+  .system-section h2 { font-size:1.1rem; border-bottom:2px solid var(--ink); display:inline-block; padding-bottom:.5rem; margin:0 0 1.2rem; }
+  .system-section h2 span { color:var(--slate); font-size:.8rem; letter-spacing:.12em; margin-right:.4rem; }
+  .system-section h3 { font-size:.9rem; margin:1.3rem 0 .6rem; }
+  .purpose-grid,.review-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+  .purpose-grid > div,.review-grid > div { border:1px solid var(--line); padding:1rem 1.1rem; }
+  .purpose-grid h3,.review-grid h3 { margin:0 0 .4rem; }
+  .purpose-grid p,.review-grid p { font-size:.84rem; line-height:1.75; color:#374151; margin:0; }
+  .scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.2rem 0 1.5rem; }
+  .scenario-card { border:1px solid var(--line); border-top:3px solid var(--blue); padding:1.1rem; background:#fff; }
+  .scenario-card:nth-child(2) { border-top-color:var(--green); }
+  .scenario-id { font-size:.7rem; letter-spacing:.16em; color:var(--slate); margin:0; }
+  .scenario-card h3 { font-size:1rem; margin:.25rem 0 .2rem; }
+  .scenario-sub { font-size:.78rem; color:var(--slate); margin:0 0 .7rem; }
+  .scenario-role { font-size:.78rem; font-weight:700; color:var(--green); line-height:1.6; }
+  .scenario-card > p:last-child { font-size:.82rem; line-height:1.75; color:#374151; margin:0; }
+  .table-wrap { overflow-x:auto; margin:.6rem 0 1.2rem; }
+  .public-table { width:100%; border-collapse:collapse; font-size:.8rem; }
+  .public-table th,.public-table td { border:1px solid var(--line); padding:.6rem .7rem; text-align:left; vertical-align:top; line-height:1.65; }
+  .public-table thead th { background:var(--ink); color:#fff; font-weight:600; text-align:center; }
+  .public-table tbody th { background:var(--paper); font-weight:600; white-space:nowrap; }
+  .score-table td { text-align:center; }
+  .score-table .strong { color:var(--green); font-weight:700; }
+  .horizon { border-left:3px solid var(--blue); padding-left:1.1rem; margin-bottom:1.7rem; }
+  .horizon:nth-of-type(even) { border-left-color:var(--green); }
+  .horizon-head { display:flex; align-items:baseline; gap:.7rem; margin-bottom:.55rem; }
+  .horizon-year { font-size:1.35rem; font-weight:700; }
+  .horizon-head > span:last-child { font-size:.78rem; color:var(--slate); }
+  .horizon dl { margin:0; }
+  .horizon dl > div { display:grid; grid-template-columns:5.5rem 1fr; gap:.65rem; padding:.4rem 0; border-bottom:1px dashed var(--line); }
+  .horizon dt { font-size:.73rem; color:var(--slate); }
+  .horizon dd { margin:0; font-size:.84rem; line-height:1.7; color:#374151; }
+  .canvas-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; }
+  .canvas-block { border:1px solid var(--line); padding:.9rem 1rem; }
+  .canvas-block h3 { font-size:.78rem; margin:0 0 .45rem; color:var(--ink); }
+  .canvas-block p { font-size:.8rem; line-height:1.7; color:#374151; margin:0; }
+  .gap-table td:nth-child(5) { font-weight:700; color:var(--green); white-space:nowrap; }
+  .adaptation { border-left:3px solid var(--green); background:#f5faf6; padding:.8rem 1rem; margin-top:1.2rem; }
+  .adaptation h3 { margin:0 0 .3rem; }
+  .adaptation p { font-size:.86rem; line-height:1.8; color:#374151; margin:0; }
+  .experiment { margin:0; }
+  .experiment > div { display:grid; grid-template-columns:6rem 1fr; gap:.7rem; padding:.5rem 0; border-bottom:1px solid var(--line); }
+  .experiment dt { font-size:.78rem; font-weight:700; }
+  .experiment dd { margin:0; font-size:.86rem; line-height:1.75; color:#374151; }
+  .system-foot { margin-top:3rem; border-top:1px solid var(--line); padding-top:1.5rem; font-size:.8rem; line-height:1.8; color:var(--slate); }
+  .system-foot span { margin:0 .35rem; }
+  @media(max-width:800px) { .scenario-grid,.canvas-grid { grid-template-columns:1fr; } }
+  @media(max-width:620px) { .purpose-grid,.review-grid { grid-template-columns:1fr; } .horizon dl > div,.experiment > div { grid-template-columns:1fr; gap:.15rem; } .system h1 { font-size:1.5rem; } }
+</style>
