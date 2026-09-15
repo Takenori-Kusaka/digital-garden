@@ -1,0 +1,371 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const horizon = [
+  {
+    t: '2029',
+    age: '38歳',
+    label: '3年後',
+    being: '静かな助走はない。情報と不安がすでに飽和した環境で、時短と休息を仕組みで守り、抱え込みに戻っていない。完了を言い切って手放す型を、個人ではなく現場のプロセスとしても使う。',
+    role: 'リーダー補助から「現場×AIの翻訳者」へ。設計に責任の一部を持ち、最終責任者にはならない。所属は実験場であり、依存先ではない。',
+    impact: 'チームの対処費用を下げる。エスカレーションを自分の頭ではなく仕組みの上で回す。同時に、籍が無くなっても途絶しない種（公開証拠・再利用アセット・少数の専門家）を積んでいる。',
+    life: '派手さではなく余力の残存量で測る。社会不安の中でも、生活の下限は割っていない。'
+  },
+  {
+    t: '2031',
+    age: '40歳',
+    label: '5年後',
+    being: '特定の組織に籍があろうがなかろうが、精神的・経済的な主権が揺らがない。翻訳者×環境知能アーキテクトとして、再現性のある成果を複数持つ。',
+    role: 'マネージャーでもPOでも実装チームでもない。トレードオフが桁で見え、判断が想定どおり着地することを支える。',
+    impact: '現場の物理動線を変えずにデータ化と判断支援が走る。この種の翻訳で相談される。画面の中のAIがコモディティ化したなら、現場の物理と制度設計へ重心を移す。',
+    life: '仕事・家庭に支障が出る不調がない。収入の下限は、特需でも氾濫でも、立ち位置の更新で守る。'
+  },
+  {
+    t: '2036',
+    age: '45歳',
+    label: '10年後',
+    being: '事業と技術を橋渡しし、一事業または複数チームの中長期の技術・プロセス戦略に責任を持つ。外部信用があり、所属を失っても選択肢がある。',
+    role: '社会アーキテクト。供給の下限と継続性を、情報とプロセスの層で設計する。',
+    impact: '判断を「委ねる／自ら行う」区別の費用を下げる環境を、組織または地域に残す。代替の欠如を埋める側にいる。',
+    life: '働く時間とテーマを、以前より主体的に選べる。移動の制約は変わらない前提で設計し続ける。'
+  },
+  {
+    t: '2046',
+    age: '55歳',
+    label: '20年後',
+    being: '人と組織の判断・創造性を拡張する仕組みを何度も生み出せている。科学者ではなく、馬のあぶみ側の技術者として年を取っている。',
+    role: '産霊する設計者。局所自律の3水準（設備・構成・制度）を同時に見る。自分がいなくても回る型を残す。',
+    impact: '供給の下限と、決定の根拠の開示を、現場の対処費用を下げることで支える。後進に立たせて去っていった記録を持つ。',
+    life: '余力のある暮らし。旅・食・文化の通過儀礼が、回復と産霊の実践として続いている。'
+  }
+];
+
+const currentModel = [
+  { k: '誰に', v: 'オムロンデジタルの上司・開発組織。間接的にグループの現場。個人開発の自分自身。' },
+  { k: '何を', v: 'IoT／クラウド／生成AIの実装と設計。育休中は世界観の言語化（Zenn本36万字）と個人アセット。' },
+  { k: 'どう届けるか', v: '現職実績、GitHub、Zenn、LinkedIn。展示会型の名刺交換は使わない。' },
+  { k: '関係のかたち', v: '雇用。個人開発は自己利用中心。専門家パスは端緒。' },
+  { k: '得るもの', v: '給与、学習、思想の確立、信用の芽、裁量。' },
+  { k: '支えになる資産', v: 'π字型の統合、Claude Code、QuickScribe、Zenn本、Home Assistant、回復した健康。' }
+];
+
+const targetModel = [
+  { k: '誰に', v: '最終的な現場利用者、事業責任者、公共・産業のガバナンス担当。「払う人」と「使う人」を分けて捉える。' },
+  { k: '何を', v: '対処費用の低下。途絶しない判断環境。トレードオフが桁で合意されること。' },
+  { k: 'どう届けるか', v: '紹介、実践の一次情報、ケース、動くプロトタイプ。非同期の贈与を続ける。' },
+  { k: '関係のかたち', v: '雇用に加え、少数の深い関係。一対一・目的ベース、友達作りとは異なる。' },
+  { k: '得るもの', v: '持続する収入、裁量、信用、時間の自由（余力）、社会的意義。' },
+  { k: '支えになる資産', v: '翻訳の型、公開証拠、専門家パス、再利用アセット、健康と余力。' }
+];
+
+const hills = [
+  {
+    label: '登る丘',
+    tone: 'climb',
+    points: [
+      'AIを「作る」側ではなく「使いこなして現場にリーチさせる」側',
+      'お役所仕事の構造にAIを刺し、人間をデータ入力から解放する設計',
+      'データコモンズ／共通アセットという、個別最適を超えたスケール',
+      '一対一の専門家対話（短い面談、かかりつけ型の継続的関係）'
+    ]
+  },
+  {
+    label: '登らない丘',
+    tone: 'avoid',
+    points: [
+      '安価な労働の回転で立つモデル（時差で中抜けが常態化する働き方）',
+      'モデルそのものをゼロから競う科学者・研究開発のレイヤー',
+      '資金が目的化し、より良いものを作る方向を崩す事業',
+      'コード細部の速さ・知識量の相対評価でしか立たない環境'
+    ]
+  }
+];
+
+const baseUrl = import.meta.env.BASE_URL;
+const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
+---
+
+<BaseLayout
+  title="キャリア設計"
+  description="日下武紀のキャリア設計。縮退と余力の世界観を前提に、3年後・5年後・10年後・20年後の状態を状態語で記す。"
+>
+  <article class="career">
+    <!-- Hero -->
+    <header class="career-hero">
+      <p class="career-eyebrow">Career Design · v0.2 · 仮説</p>
+      <h1 class="career-title">余力を守る翻訳者として、<br />局所の供給が途絶しない設計を残す。</h1>
+      <p class="career-lead">
+        これは経歴の約束ではない。これからの意思決定を測るための仮説である。
+        物理のインフラはまだ持つ。だが情報と不安に、静かな助走期間はない。
+        供給の期待は一律の水準から<em>下限と継続性</em>へ、判断の代行から<em>根拠の開示</em>へ移る。
+      </p>
+      <p class="career-src">
+        世界前提の出典：<a href={zennUrl} target="_blank" rel="noopener noreferrer">『未来予測の設計図』第Ⅲ部・第Ⅳ部</a>（ベースライン／悲観シナリオ）
+      </p>
+    </header>
+
+    <!-- 憲章 -->
+    <section class="career-section">
+      <h2 class="career-h2">目的</h2>
+      <p class="career-p lead">
+        現場（製造業、ノンデスク、ITに不慣れな業務者）が、自分の物理動線を変えずに仕事を続けられるようにする。
+        生成AIと環境知能で周辺雑務を裏で終わらせ、現場・経営・技術のトレードオフを桁で翻訳して合意を残す。
+        手を動かす価値が相対化されたあとに立つのは、<strong>判断の責任</strong>と<strong>途絶しない設計</strong>である。
+      </p>
+
+      <div class="career-values">
+        <div class="career-value">
+          <span class="career-value-num">01</span>
+          <h3>余力</h3>
+          <p>衝撃に耐える唯一の条件。健康・時間・家族の下限を、成果の犠牲にしない。</p>
+        </div>
+        <div class="career-value">
+          <span class="career-value-num">02</span>
+          <h3>誠実さ</h3>
+          <p>安全性、説明可能性、根拠の開示。性能アピールで現場を騙さない。</p>
+        </div>
+        <div class="career-value">
+          <span class="career-value-num">03</span>
+          <h3>翻訳</h3>
+          <p>合意なき正しさは負債になる。桁で見せて他者を動かす。</p>
+        </div>
+        <div class="career-value">
+          <span class="career-value-num">04</span>
+          <h3>熟達</h3>
+          <p>科学者ではなく技術者。科学を扱える形に落とし、現場にリーチする。</p>
+        </div>
+        <div class="career-value">
+          <span class="career-value-num">05</span>
+          <h3>産霊</h3>
+          <p>頼られて気づき、相手が勝手に自立していくこと。抱え込みの対極。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 時間軸 -->
+    <section class="career-section">
+      <h2 class="career-h2">時間軸</h2>
+      <p class="career-p muted">役職ではなく状態で書く。物理の縮退は段階的でも、情報環境の飽和はすでに始まっている。3年は助走ではなく、騒がしいなかでの換装である。</p>
+
+      <div class="career-timeline">
+        {horizon.map((h) => (
+          <div class="career-horizon">
+            <div class="career-horizon-head">
+              <span class="career-horizon-year">{h.t}</span>
+              <span class="career-horizon-meta">{h.age} · {h.label}</span>
+            </div>
+            <dl class="career-horizon-body">
+              <div><dt>あり方</dt><dd>{h.being}</dd></div>
+              <div><dt>役割</dt><dd>{h.role}</dd></div>
+              <div><dt>変化</dt><dd>{h.impact}</dd></div>
+              <div><dt>暮らし</dt><dd>{h.life}</dd></div>
+            </dl>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- キャンバス -->
+    <section class="career-section">
+      <h2 class="career-h2">価値提供の設計図</h2>
+      <p class="career-p muted">いま（上）と、目指す姿（下）。同じ6面で比べる。差がそのまま開発課題になる。</p>
+
+      <div class="career-canvas">
+        <h3 class="career-canvas-label now">現在</h3>
+        {currentModel.map((row) => (
+          <div class="career-canvas-row">
+            <span class="career-canvas-key">{row.k}</span>
+            <span class="career-canvas-val">{row.v}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="career-canvas target">
+        <h3 class="career-canvas-label">目指す姿（5年後）</h3>
+        {targetModel.map((row) => (
+          <div class="career-canvas-row">
+            <span class="career-canvas-key">{row.k}</span>
+            <span class="career-canvas-val">{row.v}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 丘 -->
+    <section class="career-section">
+      <h2 class="career-h2">登る丘、登らない丘</h2>
+      <p class="career-p muted">愛着や高揚ではなく、余力と価値観の両方で判定する。ここに無い丘は、そもそも視野の外である。</p>
+
+      <div class="career-hills">
+        {hills.map((hill) => (
+          <div class={`career-hill career-hill--${hill.tone}`}>
+            <h3>{hill.label}</h3>
+            <ul>
+              {hill.points.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 脚注 -->
+    <footer class="career-foot">
+      <p>
+        このページは対話で改訂した仮説稿（v0.2）である。キャリアは約束ではなく仮説として、年次と外部衝撃で書き換える。
+        画面の中のAIがコモディティ化したとき、重心は現場の物理と制度設計へ移す。それも設計に含める。
+      </p>
+      <p class="career-src">
+        <a href={baseUrl}>ホームへ戻る</a>
+        <span>・</span>
+        <a href={zennUrl} target="_blank" rel="noopener noreferrer">世界前提の全文を読む</a>
+      </p>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .career {
+    --ink: #1f2937;
+    --slate: #6b7280;
+    --paper: #f8f5ef;
+    --line: #e3ddd1;
+    --blue: #24548c;
+    --green: #3a7d5c;
+    --red: #a34a3c;
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .career-hero {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .career-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 1rem;
+  }
+  .career-title {
+    font-size: 1.9rem;
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .career-lead {
+    font-size: 1rem;
+    line-height: 2;
+    color: #374151;
+    max-width: 40rem;
+  }
+  .career-lead em { font-style: normal; border-bottom: 1px solid var(--green); color: var(--green); }
+
+  .career-section { margin-bottom: 3.5rem; }
+  .career-h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--ink);
+    display: inline-block;
+  }
+  .career-p { font-size: 1rem; line-height: 1.9; color: #374151; }
+  .career-p.lead { font-size: 1.05rem; }
+  .career-p.muted { color: var(--slate); font-size: 0.92rem; margin-bottom: 1.5rem; }
+  .career-src { font-size: 0.82rem; color: var(--slate); }
+  .career-src a { color: var(--blue); text-decoration: none; }
+  .career-src a:hover { text-decoration: underline; }
+
+  /* values */
+  .career-values {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+  .career-value { border-top: 2px solid var(--ink); padding-top: 0.75rem; }
+  .career-value-num { font-size: 0.72rem; color: var(--slate); letter-spacing: 0.1em; }
+  .career-value h3 { font-size: 1rem; font-weight: 700; margin: 0.4rem 0 0.35rem; color: var(--ink); }
+  .career-value p { font-size: 0.82rem; line-height: 1.7; color: #4b5563; margin: 0; }
+
+  /* timeline */
+  .career-timeline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .career-horizon {
+    border-left: 3px solid var(--blue);
+    padding-left: 1.25rem;
+  }
+  .career-horizon:nth-child(even) { border-left-color: var(--green); }
+  .career-horizon-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .career-horizon-year { font-size: 1.5rem; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+  .career-horizon-meta { font-size: 0.78rem; color: var(--slate); }
+  .career-horizon-body { margin: 0; }
+  .career-horizon-body > div { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px dashed var(--line); }
+  .career-horizon-body > div:last-child { border-bottom: none; }
+  .career-horizon-body dt { font-size: 0.74rem; color: var(--slate); padding-top: 0.1rem; }
+  .career-horizon-body dd { margin: 0; font-size: 0.88rem; line-height: 1.75; color: #374151; }
+
+  /* canvas */
+  .career-canvas { margin-bottom: 1.5rem; border: 1px solid var(--line); }
+  .career-canvas.target { border-color: var(--blue); }
+  .career-canvas-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: var(--slate);
+  }
+  .career-canvas-label.now { background: var(--slate); }
+  .career-canvas.target .career-canvas-label { background: var(--blue); }
+  .career-canvas-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .career-canvas-row:first-of-type { border-top: none; }
+  .career-canvas-key {
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--paper);
+    border-right: 1px solid var(--line);
+  }
+  .career-canvas-val { padding: 0.7rem 1rem; font-size: 0.88rem; line-height: 1.7; color: #374151; }
+
+  /* hills */
+  .career-hills { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .career-hill { padding: 1.5rem; border: 1px solid var(--line); }
+  .career-hill--climb { border-top: 3px solid var(--green); }
+  .career-hill--avoid { border-top: 3px solid var(--red); }
+  .career-hill h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.75rem; color: var(--ink); }
+  .career-hill ul { margin: 0; padding-left: 1.1rem; }
+  .career-hill li { font-size: 0.86rem; line-height: 1.8; color: #374151; margin-bottom: 0.35rem; }
+
+  .career-foot {
+    margin-top: 4rem;
+    padding: 2rem 0 2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--slate);
+  }
+  .career-foot code { font-family: ui-monospace, monospace; font-size: 0.78rem; }
+
+  @media (max-width: 720px) {
+    .career-values { grid-template-columns: 1fr 1fr; }
+    .career-timeline { grid-template-columns: 1fr; }
+    .career-hills { grid-template-columns: 1fr; }
+    .career-canvas-row { grid-template-columns: 1fr; }
+    .career-canvas-key { border-right: none; border-bottom: 1px solid var(--line); }
+    .career-title { font-size: 1.5rem; }
+  }
+</style>
