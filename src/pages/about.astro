@@ -2,275 +2,275 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
+const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
+const publishingHubUrl = 'https://github.com/Takenori-Kusaka/publishing-hub';
+
+const values = [
+  {
+    t: '根拠を開示する',
+    d: '判断の前提と、採用しなかった選択肢を明示する。結論だけを渡さない。'
+  },
+  {
+    t: '相手の受容力から設計する',
+    d: '最も進んだ手段ではなく、その現場が実際に使える手段を選ぶ。'
+  },
+  {
+    t: '判断と責任の所在を明確にする',
+    d: '提案はするが、決定は立場のある人が行える形に整える。'
+  },
+  {
+    t: '持続可能な進め方を前提にする',
+    d: '短期的な速度のために、運用と保守の負担を後ろへ送らない。'
+  }
+];
+
+const fields = [
+  {
+    t: 'クラウドインフラ',
+    d: 'AWSを中心としたクラウド基盤の設計・構築。IaCによる自動化と、セキュアで拡張性の高いアーキテクチャ。',
+    tech: 'AWS, Terraform, CloudFormation, Serverless'
+  },
+  {
+    t: '生成AI・LLM',
+    d: '大規模言語モデルを業務へ組み込む設計。グループ全体の活用推進、社内DXコンサルティング10件以上、新規商品の企画と展示。',
+    tech: 'Claude API, OpenAI API, Prompt Engineering, RAG'
+  },
+  {
+    t: 'IoTシステム',
+    d: '製造業向けIoTの設計・開発。エッジからクラウドまでの一貫した構築と、リアルタイムのデータ処理・可視化。',
+    tech: 'MQTT, WebSocket, Time-series DB, Real-time Analytics'
+  }
+];
 ---
 
 <BaseLayout
   title="About"
-  description="日下武紀について - IoT・クラウド・生成AIエンジニア"
+  description="日下武紀について。IoT・クラウド・生成AIエンジニア。現場と経営のあいだを翻訳する設計に取り組む。"
 >
-  <article class="max-w-4xl mx-auto prose prose-lg">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+  <article class="ab">
+    <header class="ab-hero">
+      <p class="ab-eyebrow">About</p>
+      <h1 class="ab-title">日下 武紀</h1>
+      <p class="ab-en">Takenori Kusaka</p>
+      <p class="ab-lead">
+        IoT・クラウド・生成AIエンジニア。オムロンデジタル株式会社。
+        舞鶴工業高等専門学校 情報工学科卒。
+      </p>
+    </header>
 
-    <!-- Profile Section -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg mb-8">
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-          <img
-            src={`${baseUrl}/profile-photo.png`}
-            alt="日下武紀のプロフィール写真"
-            class="w-48 h-48 rounded-full object-cover border-4 border-blue-500 shadow-lg"
-          />
-          <div class="flex-1">
-            <h2 class="text-3xl font-bold text-blue-600 mb-2">日下 武紀</h2>
-            <p class="text-xl text-gray-700 mb-4">Takenori Kusaka</p>
-            <p class="text-lg text-gray-600 mb-2">IoT・クラウド・生成AIエンジニア</p>
-            <p class="text-gray-600">
-              オムロンソフトウェア株式会社<br />
-              舞鶴工業高等専門学校 情報工学科卒
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-gray-700 leading-relaxed space-y-4">
-        <p>
-          製造業向けIoTシステムの設計・開発、クラウドインフラの構築、
-          生成AIを活用したビジネスソリューションの開発に従事しています。
-        </p>
-        <p>
-          高専ロボコンで全国大会に出場した経験から始まり、
-          産業機械の組込み開発、小型無線機器の開発を経て、
-          現在はクラウドベースのIoT・AIシステムの設計と開発を行っています。
-        </p>
-      </div>
+    <section class="ab-sec">
+      <p class="ab-p">
+        製造業向けIoTシステムの設計・開発、クラウドインフラの構築、
+        生成AIを活用した業務実装に従事しています。
+      </p>
+      <p class="ab-p">
+        高専ロボコンで全国大会に出場した経験から始まり、
+        産業機械の組込み開発、小型無線機器の開発を経て、
+        現在はクラウドを基盤としたIoT・AIシステムの設計と開発を行っています。
+      </p>
     </section>
 
-    <!-- Core Values -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">大切にしていること</h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold mb-3 text-blue-700">🎯 技術で価値を創造</h3>
-          <p class="text-gray-700">
-            最新技術を追求するだけでなく、それが実際のビジネス価値に
-            つながることを重視しています。PoC開発から商用化まで、
-            一貫して価値創造に取り組んでいます。
-          </p>
-        </div>
-
-        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-          <h3 class="text-xl font-bold mb-3 text-green-700">🌱 継続的な学び</h3>
-          <p class="text-gray-700">
-            技術の進化は止まりません。日々の学びを記録し、
-            このデジタルガーデンで知識を「育てる」ことで、
-            自分自身の成長とコミュニティへの貢献を目指しています。
-          </p>
-        </div>
-
-        <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold mb-3 text-purple-700">🤝 チームでの成長</h3>
-          <p class="text-gray-700">
-            個人の技術力だけでなく、チーム全体の成長を大切にしています。
-            プロジェクトリーダーとして、メンバーの育成とマネジメントに
-            も注力しています。
-          </p>
-        </div>
-
-        <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
-          <h3 class="text-xl font-bold mb-3 text-orange-700">🚀 実践と改善</h3>
-          <p class="text-gray-700">
-            理論だけでなく、実際に手を動かして試行錯誤することを
-            重視しています。失敗から学び、継続的に改善していく
-            アジャイルなアプローチを大切にしています。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Expertise -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">専門分野</h2>
-
-      <div class="space-y-6">
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold mb-3">☁️ クラウドインフラ</h3>
-          <p class="text-gray-700 mb-3">
-            AWS を中心としたクラウドインフラの設計・構築に従事。
-            IaC（Infrastructure as Code）を活用した自動化と、
-            セキュアで拡張性の高いアーキテクチャの実現に取り組んでいます。
-          </p>
-          <p class="text-sm text-gray-600">
-            主な技術: AWS, Terraform, CloudFormation, Serverless Architecture
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-green-500">
-          <h3 class="text-xl font-bold mb-3">🤖 生成AI・LLM</h3>
-          <p class="text-gray-700 mb-3">
-            Claude、GPT-4などの大規模言語モデルを活用したビジネスソリューションの開発。
-            社内で10件以上のDXソリューションコンサルティングを実施し、
-            新規商品の企画・展示会での展示を担当しています。
-          </p>
-          <p class="text-sm text-gray-600">
-            主な技術: Claude API, OpenAI API, Prompt Engineering, RAG
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold mb-3">🏭 IoTシステム</h3>
-          <p class="text-gray-700 mb-3">
-            製造業向けIoTシステムの設計・開発経験。
-            エッジデバイスからクラウドまでの一貫したシステム構築と、
-            リアルタイムデータ処理・可視化を実現しています。
-          </p>
-          <p class="text-sm text-gray-600">
-            主な技術: MQTT, WebSocket, Time-series DB, Real-time Analytics
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Digital Garden Philosophy -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">このデジタルガーデンについて</h2>
-
-      <div class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-lg">
-        <p class="text-gray-700 leading-relaxed mb-4">
-          このサイトは私の「デジタルガーデン」です。
-          従来のブログのように時系列で記事を並べるのではなく、
-          知識を有機的につなげ、継続的に「育てる」場所として運営しています。
-        </p>
-
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">💡</span>
-            <div>
-              <strong class="text-gray-900">Insights</strong> - 日々の学びから得られた洞察と気づき
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">💭</span>
-            <div>
-              <strong class="text-gray-900">Ideas</strong> - 新しいアイデアや将来の構想
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">📅</span>
-            <div>
-              <strong class="text-gray-900">Weekly Reviews</strong> - 週次での振り返りと成長の記録
-            </div>
-          </div>
-        </div>
-
-        <p class="text-gray-700 leading-relaxed">
-          AI技術を活用した自動化システムにより、音声メモから自動的にコンテンツを生成・公開しています。
-          技術の学びを継続的に記録し、コミュニティと共有することで、
-          自分自身の成長とともに、他の方々の学びにも貢献できればと考えています。
-        </p>
-      </div>
-    </section>
-
-    <!-- Links -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6">リンク</h2>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        <a
-          href="https://github.com/Takenori-Kusaka"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 p-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition no-underline"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
+    <section class="ab-sec">
+      <h2>仕事に臨む原則</h2>
+      <dl class="ab-values">
+        {values.map((v) => (
           <div>
-            <div class="font-bold">GitHub</div>
-            <div class="text-sm opacity-80">@Takenori-Kusaka</div>
+            <dt>{v.t}</dt>
+            <dd>{v.d}</dd>
           </div>
-        </a>
+        ))}
+      </dl>
+    </section>
 
-        <a
-          href={`${baseUrl}/career/`}
-          class="flex items-center gap-3 p-4 bg-emerald-800 text-white rounded-lg hover:bg-emerald-900 transition no-underline"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m-4-4h8M4 7h16M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/>
-          </svg>
-          <div>
-            <div class="font-bold">キャリア設計</div>
-            <div class="text-sm opacity-80">3年・5年・10年・20年の状態</div>
+    <section class="ab-sec">
+      <h2>専門分野</h2>
+      <div class="ab-fields">
+        {fields.map((f) => (
+          <div class="ab-field">
+            <h3>{f.t}</h3>
+            <p>{f.d}</p>
+            <p class="ab-tech">{f.tech}</p>
           </div>
-        </a>
-
-        <a
-          href={`${baseUrl}/resume/`}
-          class="flex items-center gap-3 p-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition no-underline"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
-          <div>
-            <div class="font-bold">職務経歴書</div>
-            <div class="text-sm opacity-80">詳細な経歴はこちら</div>
-          </div>
-        </a>
-
-        <a
-          href="https://www.youtube.com/channel/UCD1zo-WnyFdE5w0pqvKblkA"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 p-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition no-underline"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-          <div>
-            <div class="font-bold">YouTube</div>
-            <div class="text-sm opacity-80">技術解説動画</div>
-          </div>
-        </a>
-
-        <a
-          href="https://listen.style/p/recalog"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-3 p-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition no-underline"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
-          </svg>
-          <div>
-            <div class="font-bold">Podcast</div>
-            <div class="text-sm opacity-80">recalog on Listen</div>
-          </div>
-        </a>
+        ))}
       </div>
     </section>
 
-    <!-- Contact -->
-    <section>
-      <h2 class="text-3xl font-bold mb-6">お問い合わせ</h2>
-      <div class="bg-gray-50 p-6 rounded-lg">
-        <p class="text-gray-700 mb-4">
-          技術に関する質問や、プロジェクトに関するお問い合わせは、
-          GitHubまたはSNSを通じてお気軽にご連絡ください。
-        </p>
-        <p class="text-sm text-gray-600">
-          ※ このサイトは個人運営であり、所属組織の公式見解を示すものではありません。
-        </p>
-      </div>
+    <section class="ab-sec">
+      <h2>このサイトについて</h2>
+      <p class="ab-p">
+        公開プロフィールと、外部への入口です。
+        気になることやまとめは
+        <a href={publishingHubUrl} target="_blank" rel="noopener noreferrer">Publishing Hub</a>
+        と
+        <a href={zennUrl} target="_blank" rel="noopener noreferrer">Zenn</a>
+        で発信しています。
+      </p>
+      <nav class="ab-links">
+        <a href={`${baseUrl}/career/`}>キャリアビジョン</a>
+        <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+        <a href={`${baseUrl}/feeds/`}>アンテナ</a>
+      </nav>
     </section>
+
+    <footer class="ab-foot">
+      <p>本サイトは個人の見解であり、所属組織の公式見解ではありません。</p>
+    </footer>
   </article>
 </BaseLayout>
 
 <style>
-  .prose a {
-    text-decoration: none;
+  .ab {
+    --ink: #1f2937;
+    --slate: #6b7280;
+    --line: #e3ddd1;
+    --blue: #24548c;
   }
 
-  .prose a:hover {
-    text-decoration: underline;
+  .ab-hero {
+    padding: 0 0 2.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .ab-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 1rem;
+  }
+  .ab-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.35rem;
+    letter-spacing: 0.04em;
+  }
+  .ab-en {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+    margin: 0 0 1.25rem;
+  }
+  .ab-lead {
+    font-size: 1rem;
+    line-height: 2;
+    color: #374151;
+    max-width: 42rem;
+  }
+
+  .ab-sec {
+    margin-bottom: 3.2rem;
+  }
+  .ab-sec h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .ab-p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #374151;
+    max-width: 42rem;
+    margin: 0 0 1rem;
+  }
+  .ab-p a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+  }
+  .ab-p a:hover {
+    border-bottom-color: var(--blue);
+  }
+
+  .ab-values {
+    margin: 0;
+  }
+  .ab-values > div {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ab-values > div:last-child {
+    border-bottom: none;
+  }
+  .ab-values dt {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .ab-values dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .ab-fields {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .ab-field {
+    border-left: 3px solid var(--blue);
+    padding-left: 1.2rem;
+  }
+  .ab-field h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+    color: var(--ink);
+  }
+  .ab-field p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #374151;
+    margin: 0;
+  }
+  .ab-tech {
+    font-size: 0.78rem;
+    color: var(--slate);
+    margin-top: 0.4rem !important;
+  }
+
+  .ab-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+  }
+  .ab-links a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    padding-bottom: 1px;
+  }
+  .ab-links a:hover {
+    border-bottom-color: var(--blue);
+  }
+
+  .ab-foot {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--slate);
+  }
+
+  @media (max-width: 720px) {
+    .ab-values > div {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+    .ab-title {
+      font-size: 1.6rem;
+    }
   }
 </style>

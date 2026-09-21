@@ -4,49 +4,41 @@
     "feeds": [
       {
         "title": "Architect Elevator - Gregor Hohpe",
-        "text": "Architect Elevator - Gregor Hohpe",
         "xmlUrl": "https://architectelevator.com/feed.xml",
         "htmlUrl": "https://architectelevator.com/"
       },
       {
         "title": "Martin Fowler",
-        "text": "Martin Fowler",
         "xmlUrl": "https://martinfowler.com/feed.atom",
         "htmlUrl": "https://martinfowler.com/"
       },
       {
         "title": "Martin Kleppmann",
-        "text": "Martin Kleppmann",
         "xmlUrl": "http://feeds.feedburner.com/martinkl",
         "htmlUrl": "https://martin.kleppmann.com/"
       },
       {
         "title": "The Pragmatic Engineer",
-        "text": "The Pragmatic Engineer",
         "xmlUrl": "https://blog.pragmaticengineer.com/feed",
         "htmlUrl": "https://blog.pragmaticengineer.com/"
       },
       {
         "title": "ByteByteGo (Alex Xu)",
-        "text": "ByteByteGo (Alex Xu)",
         "xmlUrl": "https://blog.bytebytego.com/feed",
         "htmlUrl": "https://blog.bytebytego.com/"
       },
       {
         "title": "Classmethod DevelopersIO",
-        "text": "Classmethod DevelopersIO",
         "xmlUrl": "https://dev.classmethod.jp/feed/",
         "htmlUrl": "https://dev.classmethod.jp/"
       },
       {
         "title": "Mercari Engineering Blog",
-        "text": "Mercari Engineering Blog",
         "xmlUrl": "https://engineering.mercari.com/blog/feed.xml",
         "htmlUrl": "https://engineering.mercari.com/"
       },
       {
         "title": "MIXI DEVELOPERS (Zenn)",
-        "text": "MIXI DEVELOPERS (Zenn)",
         "xmlUrl": "https://zenn.dev/p/mixi/feed",
         "htmlUrl": "https://zenn.dev/p/mixi"
       }
@@ -57,19 +49,16 @@
     "feeds": [
       {
         "title": "Preferred Networks (PFN) Tech Blog",
-        "text": "Preferred Networks (PFN) Tech Blog",
         "xmlUrl": "https://tech.preferred.jp/ja/feed/",
         "htmlUrl": "https://tech.preferred.jp/ja/"
       },
       {
         "title": "Berkeley AI Research (BAIR) Blog",
-        "text": "Berkeley AI Research (BAIR) Blog",
         "xmlUrl": "https://bair.berkeley.edu/blog/feed.xml",
         "htmlUrl": "https://bair.berkeley.edu/blog/"
       },
       {
         "title": "OpenAI Research",
-        "text": "OpenAI Research",
         "xmlUrl": "https://openai.com/news/rss.xml",
         "htmlUrl": "https://openai.com/"
       }
@@ -80,19 +69,16 @@
     "feeds": [
       {
         "title": "Shtetl-Optimized - Scott Aaronson",
-        "text": "Shtetl-Optimized - Scott Aaronson",
         "xmlUrl": "https://scottaaronson.blog/?feed=rss2",
         "htmlUrl": "https://scottaaronson.blog/"
       },
       {
         "title": "IEEE Spectrum Telecom",
-        "text": "IEEE Spectrum Telecom",
         "xmlUrl": "https://spectrum.ieee.org/feeds/topic/telecommunications.rss",
         "htmlUrl": "https://spectrum.ieee.org/"
       },
       {
         "title": "Quantum Computing Report",
-        "text": "Quantum Computing Report",
         "xmlUrl": "https://quantumcomputingreport.com/feed/",
         "htmlUrl": "https://quantumcomputingreport.com/"
       }
@@ -103,19 +89,16 @@
     "feeds": [
       {
         "title": "Amelieff バイオインフォマティクスブログ",
-        "text": "Amelieff バイオインフォマティクスブログ",
         "xmlUrl": "https://staffblog.amelieff.jp/feed",
         "htmlUrl": "https://staffblog.amelieff.jp/"
       },
       {
         "title": "In the Pipeline - Derek Lowe",
-        "text": "In the Pipeline - Derek Lowe",
         "xmlUrl": "https://www.science.org/blogs/pipeline/feed",
         "htmlUrl": "https://www.science.org/blogs/pipeline/"
       },
       {
         "title": "Broad Institute",
-        "text": "Broad Institute",
         "xmlUrl": "https://www.broadinstitute.org/rss.xml",
         "htmlUrl": "https://www.broadinstitute.org/"
       }
@@ -126,13 +109,11 @@
     "feeds": [
       {
         "title": "JAXA プレスリリース",
-        "text": "JAXA プレスリリース",
         "xmlUrl": "https://www.jaxa.jp/rss/press_j.rdf",
         "htmlUrl": "https://www.jaxa.jp/"
       },
       {
         "title": "Physics World",
-        "text": "Physics World",
         "xmlUrl": "https://physicsworld.com/feed/",
         "htmlUrl": "https://physicsworld.com/"
       }
@@ -143,7 +124,6 @@
     "feeds": [
       {
         "title": "農林水産省 (MAFF) 報道発表",
-        "text": "農林水産省 (MAFF) 報道発表",
         "xmlUrl": "https://www.maff.go.jp/j/press/rss.xml",
         "htmlUrl": "https://www.maff.go.jp/"
       }
@@ -154,19 +134,16 @@
     "feeds": [
       {
         "title": "IEEE Spectrum Robotics",
-        "text": "IEEE Spectrum Robotics",
         "xmlUrl": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
         "htmlUrl": "https://spectrum.ieee.org/"
       },
       {
         "title": "Nature Materials",
-        "text": "Nature Materials",
         "xmlUrl": "https://www.nature.com/nmat.rss",
         "htmlUrl": "https://www.nature.com/nmat/"
       },
       {
         "title": "Science Portal (科学技術振興機構 - JST)",
-        "text": "Science Portal (科学技術振興機構 - JST)",
         "xmlUrl": "https://scienceportal.jst.go.jp/rsslatest.xml",
         "htmlUrl": "https://scienceportal.jst.go.jp/"
       }
@@ -176,22 +153,89 @@
     "category": "GovTech & Policy (GovTech & 新官僚主義・政策)",
     "feeds": [
       {
+        "title": "デジタル庁 新着・更新情報",
+        "xmlUrl": "https://www.digital.go.jp/rss/news.xml",
+        "htmlUrl": "https://www.digital.go.jp/"
+      },
+      {
         "title": "デジタル庁 Techブログ (note)",
-        "text": "デジタル庁 Techブログ (note)",
         "xmlUrl": "https://digital-gov.note.jp/m/m90208c3610d0/rss",
         "htmlUrl": "https://digital-gov.note.jp/m/m90208c3610d0"
       },
       {
+        "title": "首相官邸 新着情報",
+        "xmlUrl": "https://www.kantei.go.jp/index-jnews.rdf",
+        "htmlUrl": "https://www.kantei.go.jp/"
+      },
+      {
         "title": "内閣府 (Cabinet Office) 報道発表",
-        "text": "内閣府 (Cabinet Office) 報道発表",
         "xmlUrl": "https://www.cao.go.jp/rss/news.rdf",
         "htmlUrl": "https://www.cao.go.jp/"
       },
       {
+        "title": "総務省 新着情報",
+        "xmlUrl": "https://www.soumu.go.jp/news.rdf",
+        "htmlUrl": "https://www.soumu.go.jp/"
+      },
+      {
+        "title": "法務省 新着・更新情報",
+        "xmlUrl": "https://www.moj.go.jp/news.xml",
+        "htmlUrl": "https://www.moj.go.jp/"
+      },
+      {
+        "title": "財務省 新着情報",
+        "xmlUrl": "https://www.mof.go.jp/news.rss",
+        "htmlUrl": "https://www.mof.go.jp/"
+      },
+      {
+        "title": "文部科学省 新着情報",
+        "xmlUrl": "https://www.mext.go.jp/news.rdf",
+        "htmlUrl": "https://www.mext.go.jp/"
+      },
+      {
+        "title": "厚生労働省 報道発表資料",
+        "xmlUrl": "https://www.mhlw.go.jp/stf/news.rdf",
+        "htmlUrl": "https://www.mhlw.go.jp/"
+      },
+      {
+        "title": "経済産業省 ニュースリリース",
+        "xmlUrl": "https://www.meti.go.jp/ml_index_release_atom.xml",
+        "htmlUrl": "https://www.meti.go.jp/"
+      },
+      {
         "title": "METI Journal ONLINE",
-        "text": "METI Journal ONLINE",
         "xmlUrl": "https://journal.meti.go.jp/feed/",
         "htmlUrl": "https://journal.meti.go.jp/"
+      },
+      {
+        "title": "国土交通省 プレスリリース",
+        "xmlUrl": "https://www.mlit.go.jp/press.rdf",
+        "htmlUrl": "https://www.mlit.go.jp/"
+      },
+      {
+        "title": "防衛省 新着情報",
+        "xmlUrl": "https://www.mod.go.jp/j/rss/news.xml",
+        "htmlUrl": "https://www.mod.go.jp/"
+      },
+      {
+        "title": "金融庁 新着情報",
+        "xmlUrl": "https://www.fsa.go.jp/fsaNewsListAll_rss2.xml",
+        "htmlUrl": "https://www.fsa.go.jp/"
+      },
+      {
+        "title": "消費者庁 新着情報",
+        "xmlUrl": "https://www.caa.go.jp/news.rss",
+        "htmlUrl": "https://www.caa.go.jp/"
+      },
+      {
+        "title": "警察庁 新着情報",
+        "xmlUrl": "https://www.npa.go.jp/newlyarrived/rss20.xml",
+        "htmlUrl": "https://www.npa.go.jp/"
+      },
+      {
+        "title": "e-Govパブリック・コメント",
+        "xmlUrl": "https://public-comment.e-gov.go.jp/servlet/PcmdstCommentRss?or=0",
+        "htmlUrl": "https://public-comment.e-gov.go.jp/"
       }
     ]
   },
@@ -200,13 +244,11 @@
     "feeds": [
       {
         "title": "Schneier on Security - Bruce Schneier",
-        "text": "Schneier on Security - Bruce Schneier",
         "xmlUrl": "https://www.schneier.com/feed/atom/",
         "htmlUrl": "https://www.schneier.com/"
       },
       {
         "title": "piyolog",
-        "text": "piyolog",
         "xmlUrl": "http://d.hatena.ne.jp/Kango/rss",
         "htmlUrl": "https://piyolog.hatenadiary.jp/"
       }
@@ -217,25 +259,21 @@
     "feeds": [
       {
         "title": "Amber Case on Substack",
-        "text": "Amber Case on Substack",
         "xmlUrl": "https://caseorganic.substack.com/feed",
         "htmlUrl": "https://caseorganic.substack.com/"
       },
       {
         "title": "UX MILK",
-        "text": "UX MILK",
         "xmlUrl": "http://uxmilk.jp/feed",
         "htmlUrl": "https://uxmilk.jp"
       },
       {
         "title": "ICS MEDIA",
-        "text": "ICS MEDIA",
         "xmlUrl": "https://ics.media/feed/atom",
         "htmlUrl": "https://ics.media/"
       },
       {
         "title": "コリス",
-        "text": "コリス",
         "xmlUrl": "http://coliss.com/feed",
         "htmlUrl": "https://coliss.com/"
       }
@@ -246,7 +284,6 @@
     "feeds": [
       {
         "title": "Quanta Magazine",
-        "text": "Quanta Magazine",
         "xmlUrl": "https://www.quantamagazine.org/feed",
         "htmlUrl": "https://www.quantamagazine.org/"
       }
