@@ -189,7 +189,7 @@
       },
       {
         "title": "文部科学省 新着情報",
-        "xmlUrl": "https://www.mext.go.jp/news.rdf",
+        "xmlUrl": "https://www.mext.go.jp/b_menu/news/index.rdf",
         "htmlUrl": "https://www.mext.go.jp/"
       },
       {
@@ -209,7 +209,7 @@
       },
       {
         "title": "国土交通省 プレスリリース",
-        "xmlUrl": "https://www.mlit.go.jp/press.rdf",
+        "xmlUrl": "https://www.mlit.go.jp/pressrelease.rdf",
         "htmlUrl": "https://www.mlit.go.jp/"
       },
       {
@@ -234,7 +234,7 @@
       },
       {
         "title": "e-Govパブリック・コメント",
-        "xmlUrl": "https://public-comment.e-gov.go.jp/servlet/PcmdstCommentRss?or=0",
+        "xmlUrl": "https://public-comment.e-gov.go.jp/rss/pcm_list.xml",
         "htmlUrl": "https://public-comment.e-gov.go.jp/"
       }
     ]
