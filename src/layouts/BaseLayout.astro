@@ -26,7 +26,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +57,7 @@ const currentPath = Astro.url.pathname;
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
   <title>{title} | 日下武紀</title>
 </head>
@@ -108,7 +108,7 @@ const currentPath = Astro.url.pathname;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #ffffff;
+    background: var(--kb-color-surface-page);
     color: var(--ink);
     font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -117,7 +117,7 @@ const currentPath = Astro.url.pathname;
   /* Header */
   .site-header {
     border-bottom: 1px solid var(--line);
-    background: #fff;
+    background: var(--kb-color-surface-card);
   }
   .site-header__inner {
     max-width: 56rem;
@@ -163,7 +163,7 @@ const currentPath = Astro.url.pathname;
   }
   .site-nav__link:hover {
     color: var(--blue);
-    border-bottom-color: rgba(36, 84, 140, 0.4);
+    border-bottom-color: var(--kb-color-ai-300);
   }
   .site-nav__link.is-active {
     color: var(--ink);

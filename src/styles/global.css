@@ -2,11 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ブランドのトークン(kusaka-brand の複製。scripts/brand-sync.mjs が src/styles/brand/ を書く) */
+@import './brand/brand.css';
+
+/*
+ * 旧来の変数名は、ブランドの意味トークンへの別名として残す(ページ側の CSS を壊さないため)。
+ * 新しい CSS は --kb-* を直接使う。
+ *   ink   本文の文字      slate 補助文      line 罫線      paper 紙
+ *   blue  リンク・見出し  green 採用・成立
+ */
 :root {
-  --ink: #1f2937;
-  --slate: #6b7280;
-  --line: #e3ddd1;
-  --paper: #f8f5ef;
-  --blue: #24548c;
-  --green: #3a7d5c;
+  --ink: var(--kb-color-text-primary);
+  --slate: var(--kb-color-text-secondary);
+  --line: var(--kb-color-border-line);
+  --paper: var(--kb-color-surface-page);
+  --blue: var(--kb-color-text-link);
+  --green: var(--kb-color-state-success);
+  --body-font: var(--kb-font-family-body);
+  --heading-font: var(--kb-font-family-heading);
+  --code-font: var(--kb-font-family-code);
+}
+
+html {
+  background: var(--kb-color-surface-page);
+  color: var(--kb-color-text-primary);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--heading-font);
+  letter-spacing: var(--kb-font-letterSpacing-heading);
+}
+
+code, pre, kbd {
+  font-family: var(--code-font);
+}
+
+a {
+  color: var(--kb-color-text-link);
 }

@@ -167,10 +167,10 @@ const paragraphs = (text: string): string[] =>
 
 <style>
   .rs {
-    --ink: #1f2937;
-    --slate: #6b7280;
-    --line: #e3ddd1;
-    --blue: #24548c;
+    --ink: var(--kb-color-text-primary);
+    --slate: var(--kb-color-text-secondary);
+    --line: var(--kb-color-border-line);
+    --blue: var(--kb-color-text-link);
     max-width: 48rem;
     margin: 0 auto;
   }
@@ -195,7 +195,7 @@ const paragraphs = (text: string): string[] =>
     border: 1px solid var(--blue);
   }
   .rs-dl:hover {
-    background: #1c4270;
+    background: var(--kb-color-ai-800);
   }
   .rs-dl--pending {
     background: transparent;
@@ -261,7 +261,7 @@ const paragraphs = (text: string): string[] =>
   .rs-p {
     font-size: 0.92rem;
     line-height: 1.95;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin: 0 0 0.5rem;
   }
 
@@ -285,7 +285,7 @@ const paragraphs = (text: string): string[] =>
   .rs-basic dd {
     margin: 0;
     font-size: 0.9rem;
-    color: #374151;
+    color: var(--kb-color-ink-800);
   }
 
   .rs-table {
@@ -308,7 +308,7 @@ const paragraphs = (text: string): string[] =>
     white-space: nowrap;
   }
   .rs-table td {
-    color: #374151;
+    color: var(--kb-color-ink-800);
   }
 
   .rs-company {
@@ -343,7 +343,7 @@ const paragraphs = (text: string): string[] =>
   .rs-project__meta {
     font-size: 0.83rem;
     line-height: 1.8;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin: 0 0 0.2rem;
   }
   .rs-company__meta .k,
@@ -391,7 +391,7 @@ const paragraphs = (text: string): string[] =>
   .rs-project__body {
     font-size: 0.85rem;
     line-height: 1.9;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin: 0;
   }
 
@@ -402,13 +402,13 @@ const paragraphs = (text: string): string[] =>
   .rs-list li {
     font-size: 0.88rem;
     line-height: 1.9;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin-bottom: 0.3rem;
   }
   .rs-list a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
   }
   .rs-list a:hover {
     border-bottom-color: var(--blue);
@@ -432,7 +432,7 @@ const paragraphs = (text: string): string[] =>
   .rs-foot__note a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
   }
 
   @media (max-width: 720px) {

@@ -132,11 +132,11 @@ const channels = [
 
 <style>
   .gw {
-    --ink: #1f2937;
-    --slate: #6b7280;
-    --line: #e3ddd1;
-    --blue: #24548c;
-    --green: #3a7d5c;
+    --ink: var(--kb-color-text-primary);
+    --slate: var(--kb-color-text-secondary);
+    --line: var(--kb-color-border-line);
+    --blue: var(--kb-color-text-link);
+    --green: var(--kb-color-state-success);
   }
 
   .gw-hero {
@@ -162,7 +162,7 @@ const channels = [
   .gw-lead {
     font-size: 1rem;
     line-height: 2;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     max-width: 42rem;
   }
   .gw-links {
@@ -175,7 +175,7 @@ const channels = [
   .gw-links a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
     padding-bottom: 1px;
   }
   .gw-links a:hover {
@@ -211,7 +211,7 @@ const channels = [
   .gw-card {
     border: 1px solid var(--line);
     border-top: 2px solid var(--blue);
-    background: #fff;
+    background: var(--kb-color-surface-card);
     padding: 1.1rem 1.2rem;
   }
   .gw-card h3 {
@@ -223,7 +223,7 @@ const channels = [
   .gw-card p {
     font-size: 0.85rem;
     line-height: 1.8;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin: 0;
   }
 
@@ -251,7 +251,7 @@ const channels = [
   .gw-ch-d {
     font-size: 0.88rem;
     line-height: 1.7;
-    color: #374151;
+    color: var(--kb-color-ink-800);
   }
   .gw-channels a:hover .gw-ch-t {
     color: var(--blue);

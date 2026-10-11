@@ -115,11 +115,11 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
 
 <style>
   .fd {
-    --ink: #1f2937;
-    --slate: #6b7280;
-    --line: #e3ddd1;
-    --blue: #24548c;
-    --green: #3a7d5c;
+    --ink: var(--kb-color-text-primary);
+    --slate: var(--kb-color-text-secondary);
+    --line: var(--kb-color-border-line);
+    --blue: var(--kb-color-text-link);
+    --green: var(--kb-color-state-success);
   }
 
   .fd-hero {
@@ -145,7 +145,7 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
   .fd-lead {
     font-size: 1rem;
     line-height: 2;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     max-width: 42rem;
   }
   .fd-links {
@@ -158,7 +158,7 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
   .fd-links a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
     padding-bottom: 1px;
   }
   .fd-links a:hover {
@@ -200,7 +200,7 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
     font-size: 0.88rem;
     padding: 0.55rem 0.75rem;
     border: 1px solid var(--line);
-    background: #fff;
+    background: var(--kb-color-surface-card);
     color: var(--ink);
     outline: none;
   }
@@ -218,7 +218,7 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
     line-height: 1.4;
     padding: 0.25rem 0.55rem;
     border: 1px solid var(--line);
-    background: #fff;
+    background: var(--kb-color-surface-card);
     color: var(--slate);
     cursor: pointer;
   }
@@ -280,7 +280,7 @@ const totalFeeds = feedsData.reduce((acc, cat) => acc + cat.feeds.length, 0);
   .fd-actions a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
     padding-bottom: 1px;
   }
   .fd-actions a:hover {

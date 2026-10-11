@@ -120,10 +120,10 @@ const fields = [
 
 <style>
   .ab {
-    --ink: #1f2937;
-    --slate: #6b7280;
-    --line: #e3ddd1;
-    --blue: #24548c;
+    --ink: var(--kb-color-text-primary);
+    --slate: var(--kb-color-text-secondary);
+    --line: var(--kb-color-border-line);
+    --blue: var(--kb-color-text-link);
   }
 
   .ab-hero {
@@ -154,7 +154,7 @@ const fields = [
   .ab-lead {
     font-size: 1rem;
     line-height: 2;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     max-width: 42rem;
   }
 
@@ -174,14 +174,14 @@ const fields = [
   .ab-p {
     font-size: 0.95rem;
     line-height: 1.9;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     max-width: 42rem;
     margin: 0 0 1rem;
   }
   .ab-p a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
   }
   .ab-p a:hover {
     border-bottom-color: var(--blue);
@@ -209,7 +209,7 @@ const fields = [
     margin: 0;
     font-size: 0.88rem;
     line-height: 1.8;
-    color: #374151;
+    color: var(--kb-color-ink-800);
   }
 
   .ab-fields {
@@ -229,7 +229,7 @@ const fields = [
   .ab-field p {
     font-size: 0.88rem;
     line-height: 1.8;
-    color: #374151;
+    color: var(--kb-color-ink-800);
     margin: 0;
   }
   .ab-tech {
@@ -248,7 +248,7 @@ const fields = [
   .ab-links a {
     color: var(--blue);
     text-decoration: none;
-    border-bottom: 1px solid rgba(36, 84, 140, 0.3);
+    border-bottom: 1px solid var(--kb-color-ai-300);
     padding-bottom: 1px;
   }
   .ab-links a:hover {

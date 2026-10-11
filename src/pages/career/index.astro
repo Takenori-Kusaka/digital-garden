@@ -235,12 +235,12 @@ const conditions = {
 
 <style>
   .cv {
-    --ink: #1f2937;
-    --slate: #6b7280;
-    --line: #e3ddd1;
-    --paper: #f8f5ef;
-    --blue: #24548c;
-    --green: #3a7d5c;
+    --ink: var(--kb-color-text-primary);
+    --slate: var(--kb-color-text-secondary);
+    --line: var(--kb-color-border-line);
+    --paper: var(--kb-color-surface-page);
+    --blue: var(--kb-color-text-link);
+    --green: var(--kb-color-state-success);
     max-width: 56rem;
     margin: 0 auto;
   }
@@ -248,9 +248,9 @@ const conditions = {
   .cv-hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--line); margin-bottom: 3rem; }
   .cv-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin-bottom: 1rem; }
   .cv-title { font-size: 1.85rem; line-height: 1.5; font-weight: 700; color: var(--ink); margin-bottom: 1.25rem; letter-spacing: 0.01em; }
-  .cv-lead { font-size: 1rem; line-height: 2; color: #374151; max-width: 42rem; }
+  .cv-lead { font-size: 1rem; line-height: 2; color: var(--kb-color-ink-800); max-width: 42rem; }
   .cv-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1.5rem; font-size: 0.85rem; }
-  .cv-links a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(36, 84, 140, 0.3); padding-bottom: 1px; }
+  .cv-links a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--kb-color-ai-300); padding-bottom: 1px; }
   .cv-links a:hover { border-bottom-color: var(--blue); }
 
   .cv-sec { margin-bottom: 3.2rem; }
@@ -259,22 +259,22 @@ const conditions = {
     border-bottom: 2px solid var(--ink); display: inline-block;
     padding-bottom: 0.5rem; margin-bottom: 1.25rem;
   }
-  .cv-p { font-size: 0.95rem; line-height: 1.9; color: #374151; max-width: 42rem; }
+  .cv-p { font-size: 0.95rem; line-height: 1.9; color: var(--kb-color-ink-800); max-width: 42rem; }
   .cv-note { font-size: 0.82rem; line-height: 1.8; color: var(--slate); margin-top: 0.9rem; }
   .cv-note a { color: var(--blue); text-decoration: none; }
   .cv-note a:hover { text-decoration: underline; }
 
   .cv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .cv-card { border: 1px solid var(--line); border-top: 2px solid var(--blue); background: #fff; padding: 1.1rem 1.2rem; }
+  .cv-card { border: 1px solid var(--line); border-top: 2px solid var(--blue); background: var(--kb-color-surface-card); padding: 1.1rem 1.2rem; }
   .cv-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--ink); }
-  .cv-card p { font-size: 0.85rem; line-height: 1.8; color: #374151; margin: 0; }
+  .cv-card p { font-size: 0.85rem; line-height: 1.8; color: var(--kb-color-ink-800); margin: 0; }
   .cv-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   .cv-values { margin: 0; }
   .cv-values > div { display: grid; grid-template-columns: 16rem 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
   .cv-values > div:last-child { border-bottom: none; }
   .cv-values dt { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
-  .cv-values dd { margin: 0; font-size: 0.88rem; line-height: 1.8; color: #374151; }
+  .cv-values dd { margin: 0; font-size: 0.88rem; line-height: 1.8; color: var(--kb-color-ink-800); }
 
   .cv-timeline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .cv-item { border-left: 3px solid var(--blue); padding-left: 1.2rem; }
@@ -286,10 +286,10 @@ const conditions = {
   .cv-item dl > div { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0.5rem; padding: 0.45rem 0; border-bottom: 1px dashed var(--line); }
   .cv-item dl > div:last-child { border-bottom: none; }
   .cv-item dt { font-size: 0.72rem; color: var(--slate); padding-top: 0.15rem; }
-  .cv-item dd { margin: 0; font-size: 0.86rem; line-height: 1.75; color: #374151; }
+  .cv-item dd { margin: 0; font-size: 0.86rem; line-height: 1.75; color: var(--kb-color-ink-800); }
 
   .cv-list { margin: 0; padding-left: 1.2rem; }
-  .cv-list li { font-size: 0.9rem; line-height: 1.9; color: #374151; margin-bottom: 0.3rem; }
+  .cv-list li { font-size: 0.9rem; line-height: 1.9; color: var(--kb-color-ink-800); margin-bottom: 0.3rem; }
 
   .cv-conditions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .cv-cond { padding: 1.3rem 1.4rem; border: 1px solid var(--line); }
@@ -297,7 +297,7 @@ const conditions = {
   .cv-cond--avoid { border-top: 3px solid var(--slate); }
   .cv-cond h3 { font-size: 0.9rem; font-weight: 700; margin: 0 0 0.7rem; color: var(--ink); }
   .cv-cond ul { margin: 0; padding-left: 1.1rem; }
-  .cv-cond li { font-size: 0.85rem; line-height: 1.8; color: #374151; margin-bottom: 0.3rem; }
+  .cv-cond li { font-size: 0.85rem; line-height: 1.8; color: var(--kb-color-ink-800); margin-bottom: 0.3rem; }
 
   .cv-foot { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); font-size: 0.82rem; line-height: 1.9; color: var(--slate); }
 

@@ -26,3 +26,5 @@ pnpm-debug.log*
 # generated resume PDF (generated during build)
 public/resume.pdf
 
+
+.tmp/

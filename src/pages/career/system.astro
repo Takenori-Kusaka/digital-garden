@@ -260,14 +260,14 @@ const experiments = [
 </BaseLayout>
 
 <style>
-  .system { --ink:#1f2937; --slate:#6b7280; --line:#e3ddd1; --paper:#f8f5ef; --blue:#24548c; --green:#3a7d5c; max-width:60rem; margin:0 auto; color:var(--ink); }
+  .system { --ink:var(--kb-color-text-primary); --slate:var(--kb-color-text-secondary); --line:var(--kb-color-border-line); --paper:var(--kb-color-surface-page); --blue:var(--kb-color-text-link); --green:var(--kb-color-state-success); max-width:60rem; margin:0 auto; color:var(--ink); }
   .system-hero { padding:2.5rem 0 1.75rem; border-bottom:1px solid var(--line); margin-bottom:1.5rem; }
   .system-back { font-size:.82rem; margin-bottom:1.3rem; }
   .system-back a,.system-note a,.system-foot a { color:var(--blue); text-decoration:none; }
   .system-back a:hover,.system-note a:hover,.system-foot a:hover { text-decoration:underline; }
   .system-eyebrow { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); margin-bottom:.6rem; }
   .system h1 { font-size:1.9rem; margin:0 0 1rem; }
-  .system-lead,.system-p { font-size:.95rem; line-height:1.9; color:#374151; max-width:45rem; }
+  .system-lead,.system-p { font-size:.95rem; line-height:1.9; color:var(--kb-color-ink-800); max-width:45rem; }
   .system-note,.system-muted { font-size:.82rem; line-height:1.8; color:var(--slate); }
   .system-toc { display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; border-bottom:1px dashed var(--line); padding:.8rem 0 1.5rem; margin-bottom:2.5rem; font-size:.78rem; }
   .system-toc a { color:var(--blue); text-decoration:none; }
@@ -278,7 +278,7 @@ const experiments = [
   .purpose-grid,.review-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
   .purpose-grid > div,.review-grid > div { border:1px solid var(--line); padding:1rem 1.1rem; }
   .purpose-grid h3,.review-grid h3 { margin:0 0 .4rem; }
-  .purpose-grid p,.review-grid p { font-size:.84rem; line-height:1.75; color:#374151; margin:0; }
+  .purpose-grid p,.review-grid p { font-size:.84rem; line-height:1.75; color:var(--kb-color-ink-800); margin:0; }
   .scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.2rem 0 1.5rem; }
   .scenario-card { border:1px solid var(--line); border-top:3px solid var(--blue); padding:1.1rem; background:#fff; }
   .scenario-card:nth-child(2) { border-top-color:var(--green); }
@@ -286,7 +286,7 @@ const experiments = [
   .scenario-card h3 { font-size:1rem; margin:.25rem 0 .2rem; }
   .scenario-sub { font-size:.78rem; color:var(--slate); margin:0 0 .7rem; }
   .scenario-role { font-size:.78rem; font-weight:700; color:var(--green); line-height:1.6; }
-  .scenario-card > p:last-child { font-size:.82rem; line-height:1.75; color:#374151; margin:0; }
+  .scenario-card > p:last-child { font-size:.82rem; line-height:1.75; color:var(--kb-color-ink-800); margin:0; }
   .table-wrap { overflow-x:auto; margin:.6rem 0 1.2rem; }
   .public-table { width:100%; border-collapse:collapse; font-size:.8rem; }
   .public-table th,.public-table td { border:1px solid var(--line); padding:.6rem .7rem; text-align:left; vertical-align:top; line-height:1.65; }
@@ -302,19 +302,19 @@ const experiments = [
   .horizon dl { margin:0; }
   .horizon dl > div { display:grid; grid-template-columns:5.5rem 1fr; gap:.65rem; padding:.4rem 0; border-bottom:1px dashed var(--line); }
   .horizon dt { font-size:.73rem; color:var(--slate); }
-  .horizon dd { margin:0; font-size:.84rem; line-height:1.7; color:#374151; }
+  .horizon dd { margin:0; font-size:.84rem; line-height:1.7; color:var(--kb-color-ink-800); }
   .canvas-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; }
   .canvas-block { border:1px solid var(--line); padding:.9rem 1rem; }
   .canvas-block h3 { font-size:.78rem; margin:0 0 .45rem; color:var(--ink); }
-  .canvas-block p { font-size:.8rem; line-height:1.7; color:#374151; margin:0; }
+  .canvas-block p { font-size:.8rem; line-height:1.7; color:var(--kb-color-ink-800); margin:0; }
   .gap-table td:nth-child(5) { font-weight:700; color:var(--green); white-space:nowrap; }
-  .adaptation { border-left:3px solid var(--green); background:#f5faf6; padding:.8rem 1rem; margin-top:1.2rem; }
+  .adaptation { border-left:3px solid var(--green); background:var(--kb-color-growth-50); padding:.8rem 1rem; margin-top:1.2rem; }
   .adaptation h3 { margin:0 0 .3rem; }
-  .adaptation p { font-size:.86rem; line-height:1.8; color:#374151; margin:0; }
+  .adaptation p { font-size:.86rem; line-height:1.8; color:var(--kb-color-ink-800); margin:0; }
   .experiment { margin:0; }
   .experiment > div { display:grid; grid-template-columns:6rem 1fr; gap:.7rem; padding:.5rem 0; border-bottom:1px solid var(--line); }
   .experiment dt { font-size:.78rem; font-weight:700; }
-  .experiment dd { margin:0; font-size:.86rem; line-height:1.75; color:#374151; }
+  .experiment dd { margin:0; font-size:.86rem; line-height:1.75; color:var(--kb-color-ink-800); }
   .system-foot { margin-top:3rem; border-top:1px solid var(--line); padding-top:1.5rem; font-size:.8rem; line-height:1.8; color:var(--slate); }
   .system-foot span { margin:0 .35rem; }
   @media(max-width:800px) { .scenario-grid,.canvas-grid { grid-template-columns:1fr; } }
