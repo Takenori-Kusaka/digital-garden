@@ -148,7 +148,7 @@ const experiments = [
       <h2><span>M2</span> Future Scenarios</h2>
       <p class="system-p">
         役割の選択肢を単線化せず、現在の専門性を深める道、公共・産業へ広げる道、所属を越えて提供する道を並列に持つ。
-        3年程度はAを基線とし、BとCに有効な資産を同時に蓄積する。
+        現時点ではAを基線とし、BとCに有効な資産を同時に蓄積する。基線は固定せず、下記の前提を定期的に点検する。
       </p>
       <div class="scenario-grid">
         {scenarios.map((s) => (
@@ -173,6 +173,27 @@ const experiments = [
           </tbody>
         </table>
       </div>
+
+      <h3>基線を支える前提と、見直す条件</h3>
+      <p class="system-p">
+        評価の点数だけでは、どの前提が変わると結論が動くのかが分からない。
+        アーキテクチャ評価手法（ATAM）にならい、結論が敏感に反応する前提と、両立しない要素を明示する。
+      </p>
+      <div class="table-wrap">
+        <table class="public-table">
+          <thead><tr><th>区分</th><th>内容</th><th>点検の観点</th></tr></thead>
+          <tbody>
+            <tr><th>前提 1</th><td>設計と意思決定に関与できる</td><td>設計・判断に充てる時間が、調整と代替作業に置き換わっていないか</td></tr>
+            <tr><th>前提 2</th><td>設計の妥当性を相互に確認できる</td><td>自分が直接扱っていない領域を確かめられる技術者が身近にいるか</td></tr>
+            <tr><th>前提 3</th><td>持続可能な進め方を維持できる</td><td>資源の不足が、個人の作業量ではなく優先度の判断として扱われているか</td></tr>
+            <tr><th>両立しない要素</th><td>目先の要望への即応 ／ 長く使える設計</td><td>資源が足りないとき、範囲と期日のどちらを動かすかを関係者と決められているか</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="system-muted">
+        前提のいずれかが成り立たなくなった場合は、年次の見直しを待たずにシナリオの位置づけを再評価する。
+        判断は「状況・決定・採らなかった選択肢・帰結」の形式で記録している。
+      </p>
     </section>
 
     <section id="horizons" class="system-section">
