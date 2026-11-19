@@ -39,7 +39,7 @@ const horizon = [
     t: '2029',
     age: '38歳',
     label: '3年後',
-    role: '現場と経営のあいだの翻訳役として、業務プロセス改善の設計を主導する。設計責任の一部を担う。',
+    role: '前例のない技術課題に入り、方向を揃えて渡す役割を、複数の案件で担う。案件・現場の責任者と直接組む。',
     expertise: '生成AIを組み込んだ業務データの整形と判断支援を、本番運用まで完遂する。',
     impact: '業務の対処費用を下げ、意思決定に必要な情報を誰でも同じ形で参照できる状態をつくる。',
     approach: '実務のなかで検証を回し、再現可能な型として文書に残す。'
@@ -48,7 +48,7 @@ const horizon = [
     t: '2031',
     age: '40歳',
     label: '5年後',
-    role: '技術と事業の橋渡しとして、複数職能にまたがる意思決定を前進させる。',
+    role: '事業責任者の判断を直接支える位置で、新しい技術を現場に結合する領域の設計原則に責任を持つ。',
     expertise: '現場に負担をかけない自動化の設計を、複数の領域で再現する。',
     impact: '対象をグループ内から、公共・産業の領域へ広げる。',
     approach: '提案・実装・計測を一貫して担い、成果を公開できる形で残す。'
@@ -71,6 +71,32 @@ const horizon = [
     impact: '後進が自立して運営できる状態を残す。',
     approach: '技術と働き方を、一つの体系として伝える。'
   }
+];
+
+const role = [
+  {
+    t: '役割',
+    d: '前例のない技術課題に入り、選択肢を示して関係者の方向を揃え、受け取るチームが自走できる形で渡す。'
+  },
+  {
+    t: '責任範囲',
+    d: '新しい技術を現場の業務に結合する領域。個別案件ではなく、複数案件にまたがる設計原則と判断の質に責任を持つ。対象とする技術は固定せず、獲得と組み合わせを続ける。'
+  },
+  {
+    t: '機能する条件',
+    d: '成果を引き継ぐチームと、手を離す基準が着手前に決まっていること。'
+  },
+  {
+    t: '組む相手',
+    d: '現在は案件・現場の責任者やチームの管理者と組むことが多い。今後は事業責任者の判断を直接支える位置を目指す。'
+  }
+];
+
+const notRole = [
+  '人事評価と労務管理を主務とする役割',
+  '引き継ぎ先のない恒久的な運用',
+  '決定権と資源を伴わない兼任の窓口役',
+  'アルゴリズムや基礎技術そのものの研究開発'
 ];
 
 const focus = [
@@ -100,7 +126,7 @@ const conditions = {
 >
   <article class="cv">
     <header class="cv-hero">
-      <p class="cv-eyebrow">Career Vision ／ 最終更新 2026-09-15</p>
+      <p class="cv-eyebrow">Career Vision ／ 最終更新 2026-11-20</p>
       <h1 class="cv-title">
         現場と経営のあいだを翻訳し、<br />
         業務の認知的な負担を下げる設計をつくる。
@@ -129,6 +155,25 @@ const conditions = {
       </div>
       <p class="cv-note">
         経歴の詳細は <a href={`${baseUrl}/resume/`}>職務経歴書</a> を参照。
+      </p>
+    </section>
+
+    <section class="cv-sec">
+      <h2>担う役割</h2>
+      <dl class="cv-values">
+        {role.map((r) => (
+          <div>
+            <dt>{r.t}</dt>
+            <dd>{r.d}</dd>
+          </div>
+        ))}
+      </dl>
+      <h3 class="cv-sub">担わない役割</h3>
+      <ul class="cv-list">
+        {notRole.map((n) => <li>{n}</li>)}
+      </ul>
+      <p class="cv-note">
+        技術職の役割類型（Tech Lead / Architect / Solver / Right Hand）でいえば、Solver を主、Tech Lead を副とする。
       </p>
     </section>
 
@@ -259,6 +304,7 @@ const conditions = {
     border-bottom: 2px solid var(--ink); display: inline-block;
     padding-bottom: 0.5rem; margin-bottom: 1.25rem;
   }
+  .cv-sub { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin: 1.4rem 0 0.6rem; }
   .cv-p { font-size: 0.95rem; line-height: 1.9; color: var(--kb-color-ink-800); max-width: 42rem; }
   .cv-note { font-size: 0.82rem; line-height: 1.8; color: var(--slate); margin-top: 0.9rem; }
   .cv-note a { color: var(--blue); text-decoration: none; }
