@@ -1,9 +1,10 @@
+/* ブランドのトークン(kusaka-brand の複製。scripts/brand-sync.mjs が src/styles/brand/ を書く)。
+   @import は他の規則より前に置かないと出力から落ちるため、@tailwind より上に書く。 */
+@import './brand/brand.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ブランドのトークン(kusaka-brand の複製。scripts/brand-sync.mjs が src/styles/brand/ を書く) */
-@import './brand/brand.css';
 
 /*
  * 旧来の変数名は、ブランドの意味トークンへの別名として残す(ページ側の CSS を壊さないため)。

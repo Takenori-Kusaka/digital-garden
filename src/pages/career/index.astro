@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArchetypeMap from '../../components/career/ArchetypeMap.astro';
+import Elevator from '../../components/career/Elevator.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
@@ -172,9 +174,8 @@ const conditions = {
       <ul class="cv-list">
         {notRole.map((n) => <li>{n}</li>)}
       </ul>
-      <p class="cv-note">
-        技術職の役割類型（Tech Lead / Architect / Solver / Right Hand）でいえば、Solver を主、Tech Lead を副とする。
-      </p>
+      <h3 class="cv-sub">役割類型上の位置</h3>
+      <ArchetypeMap />
     </section>
 
     <section class="cv-sec">
@@ -193,6 +194,12 @@ const conditions = {
           <dd>個人に依存しない形で設計意図を残し、引き継ぎと再利用の費用を下げる。</dd>
         </div>
       </dl>
+      <h3 class="cv-sub">どの階の、どの決定を変えているか</h3>
+      <p class="cv-p">
+        設計者の価値は、成果物の量ではなく、変わった意思決定で測る。
+        直近の生成AI活用支援では、開発チームの進め方と、現場の業務手順が変わった。
+      </p>
+      <Elevator />
     </section>
 
     <section class="cv-sec">

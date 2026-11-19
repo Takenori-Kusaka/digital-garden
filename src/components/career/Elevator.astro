@@ -1,0 +1,99 @@
+---
+// Gregor Hohpe "The Software Architect Elevator" の比喩に沿った、往復している階の図。
+// reach: 'now' = 現在停まっている階 / 'next' = これから停まる階
+const floors = [
+  {
+    name: '事業責任者・役員',
+    reach: 'next',
+    what: '技術の効果を、投資判断に使える言葉へ置き換えて届ける',
+    tag: '開発テーマ'
+  },
+  {
+    name: '課長・部長',
+    reach: 'now',
+    what: '選択肢と、効果・費用の桁を一枚で提示する',
+    tag: '提示'
+  },
+  {
+    name: '開発チーム・委託先',
+    reach: 'now',
+    what: '設計・実装・レビューの進め方が変わった',
+    tag: '変わった決定'
+  },
+  {
+    name: '現場の利用者',
+    reach: 'now',
+    what: '日々の業務手順が変わった',
+    tag: '変わった決定'
+  }
+];
+---
+
+<figure class="el" aria-labelledby="el-cap">
+  <div class="el-building">
+    {floors.map((f) => (
+      <div class={`el-floor el-floor--${f.reach}`}>
+        <div class="el-shaft" aria-hidden="true"><span class="el-car"></span></div>
+        <div class="el-name">{f.name}</div>
+        <div class="el-what">
+          <span class="el-tag">{f.tag}</span>
+          {f.what}
+        </div>
+      </div>
+    ))}
+  </div>
+  <figcaption id="el-cap">
+    直接対話して判断材料を渡している階（実線）と、これから停まる階（破線）。
+    図の構成は Gregor Hohpe『The Software Architect Elevator』の比喩による。
+  </figcaption>
+</figure>
+
+<style>
+  .el { margin: 1.6rem 0 0; }
+  .el-building { border: 1px solid var(--kb-color-border-line); background: var(--kb-color-surface-page); }
+  .el-floor {
+    display: grid; grid-template-columns: 2.6rem 10.5rem 1fr; align-items: stretch;
+    border-bottom: 1px solid var(--kb-color-border-line);
+  }
+  .el-floor:last-child { border-bottom: none; }
+
+  .el-shaft { position: relative; background: var(--kb-color-surface-card); }
+  .el-shaft::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 0;
+    border-left: 3px solid var(--kb-color-brand-primary); transform: translateX(-50%);
+  }
+  .el-floor--next .el-shaft::before { border-left: 3px dashed var(--kb-color-brand-accent); top: 50%; }
+  .el-floor:last-child .el-shaft::before { bottom: 50%; }
+  .el-car {
+    position: absolute; left: 50%; top: 50%; width: 0.85rem; height: 0.85rem;
+    transform: translate(-50%, -50%); border-radius: 50%;
+    background: var(--kb-color-brand-primary); border: 2px solid var(--kb-color-surface-page);
+  }
+  .el-floor--next .el-car { background: var(--kb-color-surface-page); border: 2px dashed var(--kb-color-brand-accent); }
+
+  .el-name {
+    display: flex; align-items: center; padding: 0.95rem 0.9rem;
+    font-size: 0.88rem; font-weight: 700; color: var(--kb-color-text-primary);
+    font-family: var(--kb-font-family-heading);
+  }
+  .el-floor--next .el-name { color: var(--kb-color-human-700); }
+  .el-what {
+    padding: 0.95rem 0.9rem 0.95rem 0; font-size: 0.84rem; line-height: 1.7;
+    color: var(--kb-color-ink-800);
+  }
+  .el-tag {
+    display: inline-block; margin-right: 0.5rem; padding: 0.1rem 0.45rem;
+    font-size: 0.68rem; letter-spacing: 0.04em;
+    color: var(--kb-color-brand-primary); border: 1px solid var(--kb-color-ai-300);
+  }
+  .el-floor--next .el-tag { color: var(--kb-color-human-700); border-color: var(--kb-color-human-300); }
+
+  figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
+
+  @media (max-width: 560px) {
+    .el-floor { grid-template-columns: 2.2rem 1fr; }
+    .el-shaft { grid-row: span 2; }
+    .el-name { padding: 0.8rem 0.7rem 0.1rem; }
+    .el-what { padding: 0.1rem 0.7rem 0.8rem; grid-column: 2; }
+  }
+</style>
