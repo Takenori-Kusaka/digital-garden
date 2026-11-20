@@ -9,10 +9,14 @@ const DIST_DIR = resolve(process.cwd(), 'dist');
 const OUTPUTS = [resolve(DIST_DIR, 'resume.pdf'), resolve(process.cwd(), 'public/resume.pdf')];
 
 // ATS が読み取れるよう、1段組・テキスト選択可能・ページ番号付きで出力する
+// 余白もページと同じ紙色で塗る。PDF 側の margin は白で塗られるため、余白は @page で指定する
+const PAGE_CSS =
+  '@page { size: A4; margin: 18mm 16mm; background: var(--kb-color-surface-page, #fbfaf5); }' +
+  'html, body { background: var(--kb-color-surface-page, #fbfaf5) !important; }';
+
 const PDF_OPTIONS = {
-  format: 'A4',
   printBackground: true,
-  margin: { top: '18mm', bottom: '18mm', left: '16mm', right: '16mm' },
+  preferCSSPageSize: true,
   displayHeaderFooter: true,
   headerTemplate: '<div></div>',
   footerTemplate:
@@ -54,6 +58,7 @@ async function main() {
 
     await page.goto(URL, { waitUntil: 'networkidle' });
     await page.emulateMedia({ media: 'print' });
+    await page.addStyleTag({ content: PAGE_CSS });
 
     for (const path of OUTPUTS) {
       await page.pdf({ path, ...PDF_OPTIONS });
