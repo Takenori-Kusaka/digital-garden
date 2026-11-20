@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const strengths = [
+  { t: '技術を横断する', d: '組込み・無線機器からクラウド基盤、生成AIの業務実装まで。層をまたぐ問題を一人で切り分けられる。' },
+  { t: '方向を揃える', d: '前例のない課題で、選択肢と効果・費用の桁を一枚に並べ、関係者が同じ絵で決められる状態をつくる。' },
+  { t: '渡して自走させる', d: '解いた後は、受け取るチームが自分で回せる形に整えて手を離す。' }
+];
+
+const seek = [
+  {
+    t: 'AIで何を変えるかまで、事業に組み込まれている',
+    d: 'AIを提供すること自体ではなく、それで現場や社会の何を変えるのかが事業の中心にある。製造・建設・物流・インフラなど、物理的な現場を相手にする事業に特に関心がある。'
+  },
+  {
+    t: '役割として設計された席',
+    d: '手が足りない部分の補充ではなく、担う問題と範囲が定義されている。成果を引き継ぐチームがあり、優先度は組織として決められる。'
+  },
+  {
+    t: '設計を議論で確かめ合える技術者がいる',
+    d: '知見を出すだけでなく、得るものがある。互いの設計の妥当性を議論できる技術者が身近にいる。'
+  }
+];
+
+const pass = [
+  '関西圏外のオフィスへの定期的な出社が前提の募集',
+  '社内で生成AI活用を立ち上げる、最初の一人としての募集',
+  '人事評価と労務管理を主務とする管理職の募集'
+];
+
+const facts = [
+  ['勤務形態', 'フルリモート、または関西圏のオフィスへの通勤'],
+  ['時期', '2027年春以降の参画を想定。現在は情報収集の段階'],
+  ['役割', 'IC（個人貢献者）。技術課題の探索・設計・合意形成を担う']
+];
+---
+
+<BaseLayout
+  title="ご紹介をご検討の方へ"
+  description="日下武紀へ求人のご紹介をご検討いただく方向けの一枚。得意な仕事、探している環境、ご紹介を見送っていただきたい条件。"
+>
+  <article class="br">
+    <header class="br-hero">
+      <p class="br-eyebrow">For Recruiters ／ 最終更新 2026-11-20</p>
+      <h1>ご紹介をご検討の方へ</h1>
+      <p class="br-lead">
+        IoT・クラウド・生成AIエンジニアの日下武紀です。製造業の現場からクラウド、生成AIまでを横断して15年。
+        ご紹介の前にお読みいただけるよう、得意な仕事と探している環境を一枚にまとめました。
+      </p>
+    </header>
+
+    <section class="br-sec">
+      <h2>得意な仕事</h2>
+      <ol class="br-flow">
+        {strengths.map((s, i) => (
+          <li>
+            <span class="br-step">{i + 1}</span>
+            <strong>{s.t}</strong>
+            <span>{s.d}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="br-sec">
+      <h2>探している環境</h2>
+      <div class="br-seek">
+        {seek.map((s) => (
+          <div class="br-card">
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="br-sec br-two">
+      <div class="br-pass">
+        <h2>ご紹介を見送っていただきたい募集</h2>
+        <ul>{pass.map((p) => <li>{p}</li>)}</ul>
+      </div>
+      <div class="br-facts">
+        <h2>条件</h2>
+        <dl>
+          {facts.map(([k, v]) => (
+            <div><dt>{k}</dt><dd>{v}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <footer class="br-foot">
+      <p>詳しくは次のページをご覧ください。</p>
+      <nav class="br-links">
+        <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+        <a href={`${baseUrl}/career/`}>キャリアビジョン</a>
+        <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
+      </nav>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .br { max-width: 52rem; margin: 0 auto; }
+  .br-hero { padding: 2.6rem 0 1.6rem; border-bottom: 1px solid var(--kb-color-border-line); margin-bottom: 2.2rem; }
+  .br-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kb-color-text-secondary); margin-bottom: 0.8rem; }
+  .br-hero h1 { font-size: 1.7rem; line-height: 1.45; margin-bottom: 1rem; color: var(--kb-color-text-primary); }
+  .br-lead { font-size: 0.95rem; line-height: 1.95; color: var(--kb-color-ink-800); max-width: 42rem; }
+
+  .br-sec { margin-bottom: 2.4rem; }
+  .br-sec h2 {
+    font-size: 1.02rem; font-weight: 700; letter-spacing: 0.06em; color: var(--kb-color-text-primary);
+    border-bottom: 2px solid var(--kb-color-text-primary); display: inline-block; padding-bottom: 0.4rem; margin-bottom: 1.1rem;
+  }
+
+  .br-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .br-flow li {
+    display: flex; flex-direction: column; gap: 0.35rem;
+    border-top: 3px solid var(--kb-color-ai-300); padding-top: 0.7rem;
+  }
+  .br-flow li:nth-child(2) { border-top-color: var(--kb-color-brand-accent); }
+  .br-step { font-size: 0.7rem; color: var(--kb-color-text-secondary); }
+  .br-flow strong { font-size: 0.95rem; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .br-flow li > span:last-child { font-size: 0.84rem; line-height: 1.75; color: var(--kb-color-ink-800); }
+
+  .br-seek { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .br-card {
+    border: 1px solid var(--kb-color-border-line); border-top: 3px solid var(--kb-color-state-success);
+    background: var(--kb-color-surface-card); padding: 1rem 1.05rem;
+  }
+  .br-card h3 { font-size: 0.9rem; line-height: 1.55; margin: 0 0 0.5rem; color: var(--kb-color-text-primary); }
+  .br-card p { font-size: 0.82rem; line-height: 1.75; margin: 0; color: var(--kb-color-ink-800); }
+
+  .br-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+  .br-pass, .br-facts { border: 1px solid var(--kb-color-border-line); padding: 1.1rem 1.2rem 1rem; }
+  .br-pass { border-top: 3px solid var(--kb-color-text-secondary); }
+  .br-facts { border-top: 3px solid var(--kb-color-brand-primary); }
+  .br-two h2 { font-size: 0.92rem; border-bottom: none; padding-bottom: 0; margin-bottom: 0.7rem; }
+  .br-pass ul { margin: 0; padding-left: 1.1rem; list-style: disc; }
+  .br-pass li { font-size: 0.85rem; line-height: 1.75; color: var(--kb-color-ink-800); margin-bottom: 0.3rem; }
+  .br-facts dl { margin: 0; }
+  .br-facts dl > div { display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--kb-color-border-line); }
+  .br-facts dl > div:last-child { border-bottom: none; }
+  .br-facts dt { font-size: 0.76rem; color: var(--kb-color-text-secondary); padding-top: 0.1rem; }
+  .br-facts dd { margin: 0; font-size: 0.85rem; line-height: 1.7; color: var(--kb-color-ink-800); }
+
+  .br-foot { border-top: 1px solid var(--kb-color-border-line); padding-top: 1.3rem; font-size: 0.85rem; color: var(--kb-color-text-secondary); }
+  .br-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 0.5rem; }
+  .br-links a { color: var(--kb-color-text-link); text-decoration: none; border-bottom: 1px solid var(--kb-color-ai-300); }
+
+  @media (max-width: 720px) {
+    .br-flow, .br-seek, .br-two { grid-template-columns: 1fr; }
+    .br-hero h1 { font-size: 1.4rem; }
+  }
+  @media print {
+    .br-hero { padding-top: 0.5rem; }
+  }
+</style>
