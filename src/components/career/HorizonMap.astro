@@ -1,0 +1,48 @@
+---
+// 3・5・10・20年後に、責任を持つ範囲がどう広がるか。本人の整理。
+interface Props { items: { t: string; age: string; label: string; scope: string; role: string }[] }
+const { items } = Astro.props;
+---
+
+<figure class="hm" aria-labelledby="hm-cap">
+  <ol class="hm-list">
+    {items.map((h, i) => (
+      <li class="hm-item" style={`--w:${40 + i * 20}%`}>
+        <div class="hm-when">
+          <span class="hm-year">{h.t}</span>
+          <span class="hm-meta">{h.label}</span>
+        </div>
+        <div class="hm-body">
+          <div class="hm-bar"><span>{h.scope}</span></div>
+          <p>{h.role}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <figcaption id="hm-cap">
+    帯の幅は、責任を持つ範囲の広さ。入る課題の性質（前例がなく、方向を揃えて渡す）は変えず、範囲を広げていく。
+  </figcaption>
+</figure>
+
+<style>
+  .hm { margin: 1.2rem 0 2rem; }
+  .hm-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+  .hm-item { display: grid; grid-template-columns: 5.2rem 1fr; gap: 1rem; align-items: start; }
+  .hm-when { display: flex; flex-direction: column; padding-top: 0.15rem; }
+  .hm-year { font-size: 1.25rem; font-weight: 700; color: var(--kb-color-text-primary); line-height: 1.2; }
+  .hm-meta { font-size: 0.72rem; color: var(--kb-color-text-secondary); }
+  .hm-bar {
+    width: var(--w); min-width: 9rem; padding: 0.45rem 0.8rem;
+    background: var(--kb-color-brand-primary); color: var(--kb-color-text-inverse);
+    font-size: 0.82rem; font-weight: 700;
+  }
+  .hm-item:nth-child(3) .hm-bar { background: var(--kb-color-ai-700); }
+  .hm-item:nth-child(4) .hm-bar { background: var(--kb-color-state-success); }
+  .hm-body p { margin: 0.45rem 0 0; font-size: 0.86rem; line-height: 1.75; color: var(--kb-color-ink-800); }
+  figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
+  @media (max-width: 560px) {
+    .hm-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .hm-when { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+    .hm-bar { width: auto; }
+  }
+</style>

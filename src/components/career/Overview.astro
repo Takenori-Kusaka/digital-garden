@@ -1,0 +1,49 @@
+---
+// ページ冒頭の全体図。誰のために → どう担うか → 何を武器に → どこへ。
+const baseUrl = import.meta.env.BASE_URL;
+const steps = [
+  { k: '誰のために', t: '現場で働く人', d: '作業者や現場の責任者が抱える、書かれない苦労から出発する', href: '#cv-principles' },
+  { k: 'どう担うか', t: '入って、揃えて、渡す', d: '前例のない課題に入り、方向を揃え、受け取るチームへ渡して巣立ちを見届ける', href: '#cv-role' },
+  { k: '何を武器に', t: '物理からAIまで', d: '生成AIとクラウドを深さに、デバイス・組込み・回路を幅と土台に持つ', href: '#cv-can' },
+  { k: 'どこへ', t: '案件から社会へ', d: '責任を持つ範囲を、案件 → 領域 → 製品と事業 → 社会へ広げる', href: '#cv-horizon' }
+];
+---
+
+<figure class="ov" aria-label="全体像">
+  <ol class="ov-list">
+    {steps.map((s, i) => (
+      <li>
+        <a href={s.href} class="ov-card">
+          <span class="ov-k">{s.k}</span>
+          <strong>{s.t}</strong>
+          <span class="ov-d">{s.d}</span>
+        </a>
+        {i < steps.length - 1 && <span class="ov-arrow" aria-hidden="true">→</span>}
+      </li>
+    ))}
+  </ol>
+</figure>
+
+<style>
+  .ov { margin: 2rem 0 0; }
+  .ov-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .ov-list li { position: relative; display: flex; }
+  .ov-card {
+    flex: 1; display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none;
+    padding: 0.95rem 1rem 1rem; background: var(--kb-color-surface-card);
+    border: 1px solid var(--kb-color-border-line);
+  }
+  .ov-list li:first-child .ov-card { background: var(--kb-color-human-50); border-color: var(--kb-color-human-200); }
+  .ov-card:hover { border-color: var(--kb-color-brand-primary); }
+  .ov-k { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--kb-color-text-secondary); }
+  .ov-card strong { font-size: 1rem; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .ov-d { font-size: 0.8rem; line-height: 1.7; color: var(--kb-color-ink-800); }
+  .ov-arrow {
+    position: absolute; right: -0.95rem; top: 50%; transform: translateY(-50%);
+    color: var(--kb-color-brand-accent); font-size: 0.95rem; z-index: 1;
+  }
+  @media (max-width: 720px) {
+    .ov-list { grid-template-columns: 1fr 1fr; }
+    .ov-arrow { display: none; }
+  }
+</style>

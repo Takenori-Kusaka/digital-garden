@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArchetypeMap from '../../components/career/ArchetypeMap.astro';
 import Elevator from '../../components/career/Elevator.astro';
 import TechDepth from '../../components/career/TechDepth.astro';
+import HorizonMap from '../../components/career/HorizonMap.astro';
+import Overview from '../../components/career/Overview.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
@@ -31,12 +33,14 @@ const capabilities = [
 ];
 
 const values = [
+  { t: '現場で働く人を主語にする', d: '技術を前面に出さず、作業者や現場の責任者が抱える書かれない苦労から出発する。技術は裏方に置く。' },
   { t: '根拠を開示する', d: '判断の前提と、採用しなかった選択肢を明示する。結論だけを渡さない。' },
   { t: '相手の受容力から設計する', d: '最も進んだ手段ではなく、その現場が実際に使える手段を選ぶ。' },
   { t: '判断と責任の所在を明確にする', d: '提案はするが、決定は立場のある人が行える形に整える。' },
   { t: '持続可能な進め方を前提にする', d: '短期的な速度のために、運用と保守の負担を後ろへ送らない。' }
 ];
 
+const scopes = ['案件と現場', '領域の設計原則', '製品と事業', '社会と次の担い手'];
 const horizon = [
   {
     t: '2029',
@@ -60,7 +64,7 @@ const horizon = [
     t: '2036',
     age: '45歳',
     label: '10年後',
-    role: '事業と技術を橋渡しし、一事業または複数チームの中長期の技術・プロセス戦略に責任を持つ。',
+    role: '前例のない現場の課題に入り、個別に最適化した仕組みを他の現場でも使える製品として世に出し、育ちを見届ける。現場を主語に考える経営者と組めるなら、事業全体の課題にも入る。',
     expertise: '供給や仕組みが途絶しても、現場が機能を維持できる設計。',
     impact: '組織や地域に、判断の前提が共有される状態を残す。',
     approach: '人を育て、自分がいなくても回る形にする。'
@@ -99,7 +103,8 @@ const notRole = [
   '人事評価と労務管理を主務とする役割',
   '引き継ぎ先のない恒久的な運用',
   '決定権と資源を伴わない兼任の窓口役',
-  'アルゴリズムや基礎技術そのものの研究開発'
+  'アルゴリズムや基礎技術そのものの研究開発',
+  '答えは分かっていて人手だけが足りない業務の穴埋め'
 ];
 
 const focus = [
@@ -111,14 +116,14 @@ const focus = [
 
 const conditions = {
   seek: [
-    '複数の技術領域が交わる問題を扱える',
-    '設計と意思決定に関与できる',
-    '成果を長く使われる形で残せる'
+    '現場で働く人を主語に、事業が語られている',
+    '手が足りない部分の補充ではなく、役割として設計された席である',
+    '設計の妥当性を議論で確かめ合える技術者が身近にいる'
   ],
   avoid: [
-    '単一技術の反復で量を競う働き方',
-    '研究開発そのものが目的の領域',
-    '判断の根拠が共有されない進め方'
+    '技術を前面に押し出し、現場を導入先としてしか語らない事業',
+    '答えは分かっていて人手だけが足りない業務の穴埋め',
+    '研究開発そのものが目的の領域'
   ]
 };
 ---
@@ -142,11 +147,13 @@ const conditions = {
       <nav class="cv-links">
         <a href={`${baseUrl}/resume/`}>職務経歴書</a>
         <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
+        <a href={`${baseUrl}/career/brief/`}>ご紹介をご検討の方へ</a>
         <a href={zennUrl} target="_blank" rel="noopener noreferrer">環境認識の背景（書籍）</a>
       </nav>
+      <Overview />
     </header>
 
-    <section class="cv-sec">
+    <section class="cv-sec" id="cv-can">
       <h2>できること</h2>
       <div class="cv-grid">
         {capabilities.map((c) => (
@@ -167,7 +174,7 @@ const conditions = {
       </p>
     </section>
 
-    <section class="cv-sec">
+    <section class="cv-sec" id="cv-role">
       <h2>担う役割</h2>
       <dl class="cv-values">
         {role.map((r) => (
@@ -209,7 +216,7 @@ const conditions = {
       <Elevator />
     </section>
 
-    <section class="cv-sec">
+    <section class="cv-sec" id="cv-principles">
       <h2>仕事に臨む原則</h2>
       <dl class="cv-values">
         {values.map((v) => (
@@ -221,9 +228,10 @@ const conditions = {
       </dl>
     </section>
 
-    <section class="cv-sec">
+    <section class="cv-sec" id="cv-horizon">
       <h2>これからの方向</h2>
-      <p class="cv-note">役割・専門性・貢献・進め方の4点で記述する。固定的な計画ではなく、環境の変化に応じて更新する。</p>
+      <HorizonMap items={horizon.map((h, i) => ({ t: h.t, age: h.age, label: h.label, scope: scopes[i], role: h.role }))} />
+      <p class="cv-note">各時点の詳細を、役割・専門性・貢献・進め方の4点で記述する。固定的な計画ではなく、環境の変化に応じて更新する。</p>
 
       <div class="cv-timeline">
         {horizon.map((h) => (

@@ -1,13 +1,13 @@
 ---
-// 技術職の役割類型（Will Larson "Staff Engineer" の4類型）上の現在位置。
+// 技術職の役割類型（Will Larson "Staff Engineer" の4類型）上の現在位置と、伸ばす方向。
 // 2軸への配置は本人による整理で、原典が定義したものではない。
 const cells = [
   { id: 'architect', name: 'Architect', d: '一つの領域の方向性と品質を、長く持ち続ける', pos: 'tl', mark: '' },
-  { id: 'right', name: 'Right Hand', d: '経営層の関心を借りて、組織全体の課題に入る', pos: 'tr', mark: '' },
+  { id: 'right', name: 'Right Hand', d: '経営層の関心を借りて、組織全体の課題に入る', pos: 'tr', mark: '将来・条件付き' },
   { id: 'lead', name: 'Tech Lead', d: '一つのチームの技術方針と実行を牽引する', pos: 'bl', mark: '副' },
   { id: 'solver', name: 'Solver', d: '難度の高い課題に入り、解いて、チームへ渡す', pos: 'br', mark: '主' }
 ];
-const flow = ['前例のない課題に入る', '選択肢を示す', '関係者の方向が揃う', '受け取るチームへ渡す'];
+const flow = ['前例のない課題に入る', '選択肢を示す', '関係者の方向が揃う', '受け取るチームへ渡す', '巣立った先での活躍を見届ける'];
 ---
 
 <figure class="am" aria-labelledby="am-cap">
@@ -15,12 +15,13 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
     <span class="am-axis am-axis--y">範囲が広い</span>
     <div class="am-grid">
       {cells.map((c) => (
-        <div class={`am-cell am-cell--${c.pos} ${c.mark === '主' ? 'is-main' : ''} ${c.mark === '副' ? 'is-sub' : ''}`}>
+        <div class={`am-cell am-cell--${c.pos} ${c.mark === '主' ? 'is-main' : ''} ${c.mark === '副' ? 'is-sub' : ''} ${c.id === 'right' ? 'is-future' : ''}`}>
           {c.mark && <span class="am-mark">{c.mark}</span>}
           <strong>{c.name}</strong>
           <span>{c.d}</span>
         </div>
       ))}
+      <span class="am-grow" aria-hidden="true">↑</span>
     </div>
     <div class="am-axis-x">
       <span>継続して持つ</span>
@@ -30,7 +31,7 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
 
   <ol class="am-flow" aria-label="仕事の進み方">
     {flow.map((f, i) => (
-      <li class={i === 2 ? 'is-peak' : ''}>
+      <li class={i === 2 ? 'is-peak' : i === 4 ? 'is-after' : ''}>
         <span class="am-step">{i + 1}</span>
         {f}
       </li>
@@ -38,13 +39,14 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
   </ol>
 
   <figcaption id="am-cap">
-    役割類型上の位置と、仕事の進み方。最も力を発揮するのは 3 の局面。
+    役割類型上の位置と、仕事の進み方。最も力を発揮するのは 3 の局面。解いて忘れるのではなく、5 まで見届ける。
+    Right Hand へは、現場を主語に考える経営者と組める場合に限って広げる。
     類型は Will Larson『Staff Engineer』による。2軸への配置は本人の整理。
   </figcaption>
 </figure>
 
 <style>
-  .am { margin: 1.6rem 0 0; }
+  .am { margin: 1.6rem 0 0; padding-top: 0.7rem; }
   .am-frame { position: relative; padding-left: 1.6rem; }
   .am-axis { font-size: 0.7rem; color: var(--kb-color-text-secondary); letter-spacing: 0.08em; }
   .am-axis--y {
@@ -52,7 +54,7 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
     writing-mode: vertical-rl; text-align: start;
     border-right: 1px solid var(--kb-color-border-strong); padding-right: 0.35rem;
   }
-  .am-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .am-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .am-cell {
     position: relative; display: flex; flex-direction: column; gap: 0.35rem;
     border: 1px solid var(--kb-color-border-line); background: var(--kb-color-surface-page);
@@ -63,6 +65,7 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
   .am-cell.is-main { border: 2px solid var(--kb-color-brand-primary); background: var(--kb-color-ai-50); }
   .am-cell.is-main span { color: var(--kb-color-ink-800); }
   .am-cell.is-sub { border: 1px dashed var(--kb-color-brand-primary); }
+  .am-cell.is-future { border: 1px dashed var(--kb-color-brand-accent); }
   .am-mark {
     position: absolute; top: -0.6rem; right: 0.7rem;
     font-size: 0.72rem !important; font-weight: 700; line-height: 1 !important;
@@ -70,6 +73,12 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
     background: var(--kb-color-brand-primary);
   }
   .is-sub .am-mark { background: var(--kb-color-ai-600); }
+  .is-future .am-mark { background: var(--kb-color-brand-accent); }
+  .am-grow {
+    position: absolute; right: 25%; top: 50%; transform: translate(50%, -50%);
+    font-size: 1.1rem; line-height: 1; color: var(--kb-color-brand-accent);
+    background: var(--kb-color-surface-page); padding: 0 0.2rem;
+  }
   .am-axis-x {
     display: flex; justify-content: space-between; margin-top: 0.45rem; padding-top: 0.35rem;
     border-top: 1px solid var(--kb-color-border-strong);
@@ -78,13 +87,14 @@ const flow = ['前例のない課題に入る', '選択肢を示す', '関係者
 
   .am-flow {
     list-style: none; margin: 1.4rem 0 0; padding: 0;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem;
   }
   .am-flow li {
     position: relative; font-size: 0.8rem; line-height: 1.6; color: var(--kb-color-ink-800);
     border-top: 3px solid var(--kb-color-ai-300); padding: 0.6rem 0.2rem 0 0;
   }
   .am-flow li.is-peak { border-top-color: var(--kb-color-brand-accent); font-weight: 700; color: var(--kb-color-text-primary); }
+  .am-flow li.is-after { border-top-color: var(--kb-color-state-success); }
   .am-step { display: block; font-size: 0.7rem; color: var(--kb-color-text-secondary); font-weight: 400; margin-bottom: 0.15rem; }
 
   figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
