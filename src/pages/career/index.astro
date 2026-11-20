@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArchetypeMap from '../../components/career/ArchetypeMap.astro';
 import Elevator from '../../components/career/Elevator.astro';
+import TechDepth from '../../components/career/TechDepth.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
@@ -155,6 +156,12 @@ const conditions = {
           </div>
         ))}
       </div>
+      <h3 class="cv-sub">技術の幅と深さ</h3>
+      <p class="cv-p">
+        すべての層を同じ深さで保つことはしない。深さを保つ領域、幅として持つ領域、経験として持つ領域を分けている。
+        手は動かし続ける。作ることが新しい技術を獲得する手段であり、動機の源でもある。
+      </p>
+      <TechDepth />
       <p class="cv-note">
         経歴の詳細は <a href={`${baseUrl}/resume/`}>職務経歴書</a> を参照。
       </p>

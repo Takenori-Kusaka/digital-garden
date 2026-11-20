@@ -1,0 +1,87 @@
+---
+// 技術の幅と深さ。Richards & Ford "Fundamentals of Software Architecture" の
+// 「知識のピラミッド（深さを絞り、幅を広げる）」を下敷きにした本人の整理。
+const layers = [
+  {
+    k: 'depth',
+    t: '深さ',
+    sub: '自分の手で最新を保つ',
+    items: ['生成AIの業務実装', 'クラウド基盤・IaC']
+  },
+  {
+    k: 'breadth',
+    t: '幅',
+    sub: '設計判断に使える水準で持ち、専門家と協働する',
+    items: ['開発プロセスの自動化', 'デバイス・IoT通信', '組込みソフト']
+  },
+  {
+    k: 'base',
+    t: '土台',
+    sub: '経験として語れる。今後は最新を追わない',
+    items: ['メカ設計', 'エレキ・回路']
+  }
+];
+---
+
+<figure class="td" aria-labelledby="td-cap">
+  <div class="td-next">
+    <span class="td-next-label">次に獲得する</span>
+    <span class="td-chip td-chip--next">エッジ・ローカルAI</span>
+    <span class="td-arrow" aria-hidden="true">↓</span>
+  </div>
+  <div class="td-pyramid">
+    {layers.map((l) => (
+      <div class={`td-layer td-layer--${l.k}`}>
+        <div class="td-head">
+          <strong>{l.t}</strong>
+          <span>{l.sub}</span>
+        </div>
+        <div class="td-items">
+          {l.items.map((i) => <span class="td-chip">{i}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+  <figcaption id="td-cap">
+    深さは維持に時間がかかるため2領域に絞り、残りは幅として持つ。組み合わせる対象は固定せず、上から新しい技術を加え続ける。
+    「深さを絞り、幅を広げる」は Richards &amp; Ford『Fundamentals of Software Architecture』による。3層への振り分けは本人の整理。
+  </figcaption>
+</figure>
+
+<style>
+  .td { margin: 1.6rem 0 0; }
+  .td-next { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-bottom: 0.3rem; }
+  .td-next-label { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--kb-color-human-700); }
+  .td-arrow { color: var(--kb-color-brand-accent); font-size: 0.9rem; line-height: 1; }
+
+  .td-pyramid { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; }
+  .td-layer {
+    box-sizing: border-box; padding: 0.85rem 1rem;
+    border: 1px solid var(--kb-color-border-line); background: var(--kb-color-surface-page);
+    display: flex; flex-direction: column; gap: 0.55rem; align-items: center; text-align: center;
+  }
+  .td-layer--depth { width: 56%; border: 2px solid var(--kb-color-brand-primary); background: var(--kb-color-ai-50); }
+  .td-layer--breadth { width: 80%; border-color: var(--kb-color-ai-300); }
+  .td-layer--base { width: 100%; background: var(--kb-color-surface-card); }
+
+  .td-head { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0.2rem 0.7rem; }
+  .td-head strong { font-size: 0.92rem; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .td-head span { font-size: 0.76rem; color: var(--kb-color-text-secondary); }
+
+  .td-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
+  .td-chip {
+    font-size: 0.8rem; line-height: 1.4; padding: 0.3rem 0.65rem;
+    color: var(--kb-color-ink-800); background: var(--kb-color-surface-page);
+    border: 1px solid var(--kb-color-border-strong);
+  }
+  .td-layer--depth .td-chip { color: var(--kb-color-text-inverse); background: var(--kb-color-brand-primary); border-color: var(--kb-color-brand-primary); font-weight: 700; }
+  .td-layer--base .td-chip { color: var(--kb-color-text-secondary); border-style: dashed; }
+  .td-chip--next { color: var(--kb-color-human-700); border: 1px dashed var(--kb-color-brand-accent); background: var(--kb-color-human-50); }
+
+  figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
+
+  @media (max-width: 560px) {
+    .td-layer--depth { width: 78%; }
+    .td-layer--breadth { width: 92%; }
+  }
+</style>
