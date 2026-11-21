@@ -116,6 +116,14 @@ const paragraphs = (text: string): string[] =>
                 <span class="k">役割</span>{p.role}<span class="d">／</span><span class="k">規模</span>{p.team}<span class="d">／</span><span class="k">技術</span>{p.tech}<span class="d">／</span><span class="k">意思決定範囲</span>{p.scope}
               </p>
               <p class="rs-project__body">{p.body.trim().replace(/\n+/g, '')}</p>
+              {p.evidence && (
+                <p class="rs-project__evidence">
+                  <span class="k">公開情報</span>
+                  {p.evidence.map((e, i) => (
+                    <>{i > 0 && <span class="d">／</span>}<a href={e.href} target="_blank" rel="noopener noreferrer">{e.label}</a></>
+                  ))}
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -346,8 +354,22 @@ const paragraphs = (text: string): string[] =>
     color: var(--kb-color-ink-800);
     margin: 0 0 0.2rem;
   }
+  .rs-project__evidence {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--kb-color-text-secondary);
+    margin: 0.35rem 0 0;
+  }
+  .rs-project__evidence a {
+    color: var(--kb-color-text-link);
+  }
+  .rs-project__evidence .d {
+    margin: 0 0.4rem;
+    color: var(--slate);
+  }
   .rs-company__meta .k,
-  .rs-project__meta .k {
+  .rs-project__meta .k,
+  .rs-project__evidence .k {
     font-size: 0.72rem;
     color: var(--slate);
     margin-right: 0.35rem;
