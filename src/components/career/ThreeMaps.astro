@@ -1,0 +1,118 @@
+---
+// Tanya Reilly "The Staff Engineer's Path" の3つの地図（locator / topographic / treasure）と、目的地までの道筋。
+// 対象領域の選び方と各地図の中身は本人の整理。
+const flow = ['入る', '揃える', '渡す', '見届ける'];
+const weak = 2;
+const parts = [
+  '着手前に受け手が決まっている',
+  '評価の型と、誰でも試せる共通基盤がある',
+  '手を離す基準が事前に合意されている',
+  '同時に抱える探索の数に上限がある'
+];
+const path = [
+  { t: '2027', l: '1年後', d: '受け手を先に決めた1件を、組織として渡し切る。自分が手を離しても回る。' },
+  { t: '2029', l: '3年後', d: '渡し切った事例から基準を取り出して共通基盤に組み込み、自分以外の技術者もそれを使って渡している。' },
+  { t: '2031', l: '5年後', d: '探索・評価・移管が組織の仕組みとして回る。自分はその先頭で、前例のない課題に入り続ける。' }
+];
+---
+
+<figure class="tm" aria-labelledby="tm-cap">
+  <div class="tm-maps">
+    <section class="tm-map tm-map--here">
+      <p class="tm-kind">Locator ／ 現在地</p>
+      <h3>渡すところで止まる</h3>
+      <ol class="tm-flow" aria-label="統合の4段階">
+        {flow.map((f, i) => <li class={i === weak ? 'is-weak' : ''}>{f}</li>)}
+      </ol>
+      <p>入って方向を揃えるまでは、複数の案件で再現できている。受け手の準備まで自分で担い、手を離す時点は個人の判断に任されている。</p>
+    </section>
+
+    <section class="tm-map tm-map--terrain">
+      <p class="tm-kind">Topographic ／ 地形</p>
+      <h3>障害と近道</h3>
+      <dl>
+        <div class="tm-block">
+          <dt>障害</dt>
+          <dd>受け手が決まらないまま探索が始まる。受け手の割り当ては技術者ではなく、割り当ての権限を持つ人が決めるため、技術者の努力だけでは埋まらない。</dd>
+        </div>
+        <div class="tm-short">
+          <dt>近道</dt>
+          <dd>物理の現場からクラウドまでの一次経験。受け取る側の言葉と制約を自分で知っているので、渡す形を相手に合わせて設計できる。</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="tm-map tm-map--goal">
+      <p class="tm-kind">Treasure ／ 目的地（5年後）</p>
+      <h3>探索から移管までが、組織の仕組みとして回る</h3>
+      <ul>{parts.map((p) => <li>{p}</li>)}</ul>
+      <p class="tm-sys">これらは文書の規則ではなく、守らなければ先へ進めない形でシステムに実装する。</p>
+    </section>
+  </div>
+
+  <ol class="tm-path" aria-label="目的地までの道筋">
+    {path.map((p) => (
+      <li>
+        <span class="tm-year">{p.t}<small>{p.l}</small></span>
+        <span>{p.d}</span>
+      </li>
+    ))}
+  </ol>
+
+  <figcaption id="tm-cap">
+    新しい技術を組織へ統合する仕事についての、現在地・地形・目的地と道筋。
+    地図の枠組みは Tanya Reilly『The Staff Engineer's Path』による。対象の選び方と中身は本人の整理。
+  </figcaption>
+</figure>
+
+<style>
+  .tm { margin: 1.4rem 0 0; }
+  .tm-maps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; align-items: stretch; }
+  .tm-map {
+    position: relative; border: 1px solid var(--kb-color-border-line); background: var(--kb-color-surface-page);
+    padding: 1rem 1.05rem 1.05rem; display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .tm-map--here { border-top: 3px solid var(--kb-color-ai-300); }
+  .tm-map--terrain { border-top: 3px solid var(--kb-color-text-secondary); }
+  .tm-map--goal { border: 2px solid var(--kb-color-brand-primary); background: var(--kb-color-ai-50); }
+  .tm-kind { margin: 0; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--kb-color-text-secondary); }
+  .tm-map h3 { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .tm-map p, .tm-map dd, .tm-map li { font-size: 0.8rem; line-height: 1.75; color: var(--kb-color-ink-800); }
+  .tm-map p { margin: 0; }
+
+  .tm-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.25rem; }
+  .tm-flow li {
+    text-align: center; font-size: 0.74rem !important; padding: 0.35rem 0; line-height: 1.3 !important;
+    border: 1px solid var(--kb-color-ai-300); background: var(--kb-color-surface-card);
+  }
+  .tm-flow li.is-weak {
+    border: 1px dashed var(--kb-color-brand-accent); color: var(--kb-color-brand-accent) !important; font-weight: 700;
+    background: var(--kb-color-surface-page);
+  }
+
+  .tm-map dl { margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+  .tm-map dl > div { padding-left: 0.6rem; border-left: 3px solid; }
+  .tm-block { border-left-color: var(--kb-color-brand-accent) !important; }
+  .tm-short { border-left-color: var(--kb-color-state-success) !important; }
+  .tm-map dt { font-size: 0.72rem; font-weight: 700; color: var(--kb-color-text-primary); margin-bottom: 0.15rem; }
+  .tm-map dd { margin: 0; }
+
+  .tm-map ul { margin: 0; padding-left: 1.05rem; list-style: disc; }
+  .tm-map li { margin-bottom: 0.15rem; }
+  .tm-sys { border-top: 1px dashed var(--kb-color-brand-primary); padding-top: 0.5rem; font-weight: 700; color: var(--kb-color-text-primary) !important; }
+
+  .tm-path { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .tm-path li {
+    display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.6rem;
+    border-top: 3px solid var(--kb-color-ai-300); font-size: 0.8rem; line-height: 1.7; color: var(--kb-color-ink-800);
+  }
+  .tm-path li:last-child { border-top-color: var(--kb-color-brand-primary); }
+  .tm-year { font-size: 0.95rem; font-weight: 700; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .tm-year small { font-size: 0.7rem; font-weight: 400; color: var(--kb-color-text-secondary); margin-left: 0.4rem; }
+
+  figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
+
+  @media (max-width: 720px) {
+    .tm-maps, .tm-path { grid-template-columns: 1fr; }
+  }
+</style>

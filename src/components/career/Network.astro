@@ -1,0 +1,103 @@
+---
+// 協働する相手の配置。妥当性を確かめてもらう方向（peer network / mentorship）と、
+// 機会を渡す方向（sponsorship）を分けて描く。区別は Larson と Reilly による。配置は本人の整理。
+const domains = [
+  { t: '組織設計・移管', d: '技術を組織が受け取る仕組み', first: true },
+  { t: '事業・経済性', d: '効果と費用の桁の妥当性' },
+  { t: 'セキュリティ・ガバナンス', d: 'AIエージェントとデータの統制' },
+  { t: '工場・現場の制御', d: 'OT・PLC 側の制約と実情' }
+];
+const who = ['他社の同格の技術者', '現場の業務責任者', 'その領域の先達', '事業責任者・経営者'];
+const give = ['成果を本人の名前で上へ届ける', '社外で発信する機会を推薦する'];
+const steps = ['判断に迷っている設計を公開する', '反応した人と一対一で議論する', '1分野に1名、継続して相談できる相手を持つ'];
+---
+
+<figure class="nw" aria-labelledby="nw-cap">
+  <div class="nw-grid">
+    <section class="nw-side nw-side--in">
+      <p class="nw-dir">← 妥当性を確かめてもらう</p>
+      <ul class="nw-domains">
+        {domains.map((x) => (
+          <li class={x.first ? 'is-first' : ''}>
+            {x.first && <span class="nw-mark">最初の1分野</span>}
+            <strong>{x.t}</strong>
+            <span>{x.d}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="nw-who"><span>相手の立場</span>{who.join('／')}</p>
+    </section>
+
+    <div class="nw-me" aria-hidden="true"><span>自分</span></div>
+
+    <section class="nw-side nw-side--out">
+      <p class="nw-dir">機会を渡す →</p>
+      <div class="nw-give">
+        <strong>PFチームのメンバー</strong>
+        <ul>{give.map((g) => <li>{g}</li>)}</ul>
+      </div>
+    </section>
+  </div>
+
+  <ol class="nw-steps" aria-label="公開物から一対一の対話へ">
+    {steps.map((s, i) => (
+      <li><span class="nw-step">{i + 1}</span>{s}</li>
+    ))}
+  </ol>
+
+  <figcaption id="nw-cap">
+    協働する相手の配置。左は自分の判断を確かめてもらう相手、右は自分が機会を渡す相手。下は、公開した設計から一対一の対話へつなぐ手順。
+    確かめてもらう相手と機会を渡す相手を分ける考え方は Will Larson『Staff Engineer』と Tanya Reilly『The Staff Engineer's Path』による。配置は本人の整理。
+  </figcaption>
+</figure>
+
+<style>
+  .nw { margin: 1.4rem 0 0; }
+  .nw-grid { display: grid; grid-template-columns: 1.6fr auto 1fr; gap: 0.8rem; align-items: center; }
+  .nw-side { display: flex; flex-direction: column; gap: 0.6rem; }
+  .nw-dir { margin: 0; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--kb-color-text-secondary); }
+  .nw-side--out .nw-dir { text-align: right; }
+
+  .nw-domains { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .nw-domains li {
+    position: relative; display: flex; flex-direction: column; gap: 0.2rem;
+    border: 1px solid var(--kb-color-border-line); background: var(--kb-color-surface-page); padding: 0.7rem 0.8rem;
+  }
+  .nw-domains li.is-first { border: 2px solid var(--kb-color-brand-primary); background: var(--kb-color-ai-50); }
+  .nw-domains strong { font-size: 0.85rem; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .nw-domains span { font-size: 0.75rem; line-height: 1.55; color: var(--kb-color-text-secondary); }
+  .nw-mark {
+    position: absolute; top: -0.6rem; right: 0.6rem; font-size: 0.68rem !important; font-weight: 700; line-height: 1 !important;
+    padding: 0.22rem 0.45rem; color: var(--kb-color-text-inverse) !important; background: var(--kb-color-brand-primary);
+  }
+  .nw-who { margin: 0; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-ink-800); }
+  .nw-who span { font-size: 0.7rem; font-weight: 700; color: var(--kb-color-text-primary); margin-right: 0.5rem; }
+
+  .nw-me {
+    width: 4.2rem; height: 4.2rem; border-radius: 50%; display: grid; place-items: center;
+    border: 2px solid var(--kb-color-text-primary); background: var(--kb-color-surface-card);
+    font-size: 0.85rem; font-weight: 700; color: var(--kb-color-text-primary);
+  }
+
+  .nw-give { border: 1px solid var(--kb-color-border-line); border-top: 3px solid var(--kb-color-state-success); padding: 0.8rem 0.9rem; background: var(--kb-color-surface-page); }
+  .nw-give strong { font-size: 0.85rem; color: var(--kb-color-text-primary); font-family: var(--kb-font-family-heading); }
+  .nw-give ul { margin: 0.4rem 0 0; padding-left: 1rem; list-style: disc; }
+  .nw-give li { font-size: 0.78rem; line-height: 1.7; color: var(--kb-color-ink-800); }
+
+  .nw-steps { list-style: none; margin: 1.3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .nw-steps li { font-size: 0.8rem; line-height: 1.6; color: var(--kb-color-ink-800); border-top: 3px solid var(--kb-color-ai-300); padding-top: 0.55rem; }
+  .nw-steps li:last-child { border-top-color: var(--kb-color-brand-primary); font-weight: 700; color: var(--kb-color-text-primary); }
+  .nw-step { display: block; font-size: 0.7rem; font-weight: 400; color: var(--kb-color-text-secondary); margin-bottom: 0.15rem; }
+
+  figcaption { margin-top: 0.9rem; font-size: 0.76rem; line-height: 1.7; color: var(--kb-color-text-secondary); }
+
+  @media (max-width: 720px) {
+    .nw-grid { grid-template-columns: 1fr; }
+    .nw-me { margin: 0 auto; }
+    .nw-side--out .nw-dir { text-align: left; }
+    .nw-steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 420px) {
+    .nw-domains { grid-template-columns: 1fr; }
+  }
+</style>

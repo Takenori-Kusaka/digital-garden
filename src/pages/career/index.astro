@@ -5,6 +5,7 @@ import Elevator from '../../components/career/Elevator.astro';
 import TechDepth from '../../components/career/TechDepth.astro';
 import HorizonMap from '../../components/career/HorizonMap.astro';
 import Overview from '../../components/career/Overview.astro';
+import Network from '../../components/career/Network.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 const zennUrl = 'https://zenn.dev/takenori_kusaka/books/sovereign-resilience-blueprint';
@@ -146,6 +147,7 @@ const conditions = {
       </p>
       <nav class="cv-links">
         <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+        <a href={`${baseUrl}/career/vision/`}>技術ビジョン</a>
         <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
         <a href={`${baseUrl}/career/brief/`}>ご紹介をご検討の方へ</a>
         <a href={zennUrl} target="_blank" rel="noopener noreferrer">環境認識の背景（書籍）</a>
@@ -249,6 +251,26 @@ const conditions = {
           </div>
         ))}
       </div>
+    </section>
+
+    <section class="cv-sec" id="cv-vision">
+      <h2>技術ビジョン</h2>
+      <p class="cv-p">
+        責任を持ちたいのは、特定の技術ではなく、新しい技術を組織が受け取れる形で持ち込む行為そのもの。
+        5年後には、着手前に受け手を決め、手を離す基準と同時に抱える数の上限を守る仕組みが、文書ではなくシステムとして回っている状態を目指す。
+        現在地は「方向を揃えるまでは再現できるが、渡すところで止まる」。
+      </p>
+      <p class="cv-note"><a href={`${baseUrl}/career/vision/`}>3つの地図（現在地・地形・目的地）と道筋 →</a></p>
+    </section>
+
+    <section class="cv-sec" id="cv-network">
+      <h2>協働する相手</h2>
+      <p class="cv-p">
+        自分が手を動かしていない領域の判断は、その領域の人に確かめてもらう。最初の1分野は、技術ビジョンの弱点に直結する組織設計・移管。
+        判断に迷っている設計を公開し、反応してくれた人と一対一で議論するところから始める。
+        逆に、自分が機会を渡す相手として、技術リードとして方向づけているチームのメンバーの成果を、本人の名前で上へ届ける。
+      </p>
+      <Network />
     </section>
 
     <section class="cv-sec">

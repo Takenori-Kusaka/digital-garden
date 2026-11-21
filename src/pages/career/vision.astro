@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThreeMaps from '../../components/career/ThreeMaps.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const agree = [
+  { who: '受け取るチームの責任者', what: '着手の前に、受け取ることを約束する。渡した後の運用と発展を担う。' },
+  { who: '事業責任者', what: '探索に使う資源と優先度を決め、同時に抱える数の上限を守らせる。' },
+  { who: '現場の利用者', what: '使い続ける当事者として、何に困っているかを出し続ける。' },
+  { who: '直属の上司', what: '時間の配分と、手を離す判断を支える。' }
+];
+
+const not = [
+  '解いた本人が、仕組みの運用者として留まり続けること',
+  '守るかどうかが個人の注意力に委ねられる、文書だけの規則',
+  '特定の技術や製品を前提にした仕組み。対象とする技術は固定しない'
+];
+---
+
+<BaseLayout
+  title="技術ビジョン"
+  description="日下武紀の技術ビジョン。新しい技術を、組織が受け取れる形で持ち込む仕組みについて、現在地・地形・目的地を1ページにまとめる。"
+>
+  <article class="tv">
+    <header class="tv-hero">
+      <p class="tv-back"><a href={`${baseUrl}/career/`}>← キャリアビジョンへ戻る</a></p>
+      <p class="tv-eyebrow">Technical Vision ／ 最終更新 2026-11-21</p>
+      <h1>新しい技術を、組織が受け取れる形で持ち込む</h1>
+      <p class="tv-lead">
+        対象とする技術は固定していません。責任を持ちたいのは、新しい技術を獲得し、組み合わせ、
+        受け取るチームが使い続けられる形で渡すという行為そのものです。
+        5年後には、この行為が個人の頑張りではなく、組織の仕組みとして回っている状態を目指します。
+      </p>
+    </header>
+
+    <section class="tv-sec">
+      <h2>3つの地図</h2>
+      <ThreeMaps />
+    </section>
+
+    <section class="tv-sec tv-two">
+      <div class="tv-box">
+        <h2>合意が欠かせない相手</h2>
+        <dl>
+          {agree.map((a) => (
+            <div><dt>{a.who}</dt><dd>{a.what}</dd></div>
+          ))}
+        </dl>
+        <p class="tv-note">受け手を決めるのは、割り当ての権限を持つ人です。そのため仕組みは、受け手の決定を着手の条件に組み込みます。</p>
+      </div>
+      <div class="tv-box tv-box--not">
+        <h2>目指さないこと</h2>
+        <ul>{not.map((n) => <li>{n}</li>)}</ul>
+      </div>
+    </section>
+
+    <footer class="tv-foot">
+      <p>この地図は、実際に渡し切った結果を見て年次で書き直します。</p>
+      <nav class="tv-links">
+        <a href={`${baseUrl}/career/`}>キャリアビジョン</a>
+        <a href={`${baseUrl}/career/system/`}>キャリア開発計画</a>
+        <a href={`${baseUrl}/resume/`}>職務経歴書</a>
+      </nav>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .tv { max-width: 56rem; margin: 0 auto; }
+  .tv-hero { padding: 2.2rem 0 1.6rem; border-bottom: 1px solid var(--kb-color-border-line); margin-bottom: 2rem; }
+  .tv-back { font-size: 0.8rem; margin-bottom: 1.2rem; }
+  .tv-back a, .tv-links a { color: var(--kb-color-text-link); text-decoration: none; border-bottom: 1px solid var(--kb-color-ai-300); }
+  .tv-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--kb-color-text-secondary); margin-bottom: 0.8rem; }
+  .tv-hero h1 { font-size: 1.7rem; line-height: 1.45; margin-bottom: 1rem; color: var(--kb-color-text-primary); }
+  .tv-lead { font-size: 0.95rem; line-height: 1.95; color: var(--kb-color-ink-800); max-width: 44rem; }
+
+  .tv-sec { margin-bottom: 2.4rem; }
+  .tv-sec h2 {
+    font-size: 1.02rem; font-weight: 700; letter-spacing: 0.06em; color: var(--kb-color-text-primary);
+    border-bottom: 2px solid var(--kb-color-text-primary); display: inline-block; padding-bottom: 0.4rem; margin-bottom: 0.6rem;
+  }
+
+  .tv-two { display: grid; grid-template-columns: 3fr 2fr; gap: 1.4rem; }
+  .tv-box { border: 1px solid var(--kb-color-border-line); border-top: 3px solid var(--kb-color-brand-primary); padding: 1.1rem 1.2rem 1rem; }
+  .tv-box--not { border-top-color: var(--kb-color-text-secondary); }
+  .tv-two h2 { font-size: 0.92rem; border-bottom: none; padding-bottom: 0; margin-bottom: 0.7rem; }
+  .tv-box dl { margin: 0; }
+  .tv-box dl > div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.6rem; padding: 0.45rem 0; border-bottom: 1px dashed var(--kb-color-border-line); }
+  .tv-box dt { font-size: 0.8rem; font-weight: 700; color: var(--kb-color-text-primary); }
+  .tv-box dd { margin: 0; font-size: 0.82rem; line-height: 1.7; color: var(--kb-color-ink-800); }
+  .tv-box ul { margin: 0; padding-left: 1.1rem; list-style: disc; }
+  .tv-box li { font-size: 0.84rem; line-height: 1.75; color: var(--kb-color-ink-800); margin-bottom: 0.3rem; }
+  .tv-note { margin: 0.8rem 0 0; font-size: 0.8rem; line-height: 1.75; color: var(--kb-color-text-secondary); }
+
+  .tv-foot { border-top: 1px solid var(--kb-color-border-line); padding-top: 1.3rem; font-size: 0.85rem; color: var(--kb-color-text-secondary); }
+  .tv-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 0.5rem; }
+
+  @media (max-width: 720px) {
+    .tv-two { grid-template-columns: 1fr; }
+    .tv-box dl > div { grid-template-columns: 1fr; gap: 0.15rem; }
+    .tv-hero h1 { font-size: 1.4rem; }
+  }
+</style>
